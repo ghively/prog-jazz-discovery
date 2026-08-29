@@ -113,7 +113,12 @@ def cmd_scene():
     st = load_state()
     scenes = st.get("scene_rotation", {}).get("scenes", DEFAULT_SCENES)
     week = st.get("week_counter", 0) + 1
-    print(json.dumps({"week": week, "scene": scenes[(week - 1) % len(scenes)]}))
+    entry = scenes[(week - 1) % len(scenes)]
+    if isinstance(entry, dict):
+        scene_name, scene_short = entry["name"], entry.get("short", entry["name"])
+    else:
+        scene_name = scene_short = entry
+    print(json.dumps({"week": week, "scene": scene_name, "scene_short": scene_short}))
 
 
 def cmd_seeds():
@@ -213,11 +218,14 @@ def cmd_publish(week=None, date=None, min_tracks=34):
 
     week = week or draft.get("week") or st.get("week_counter", 0) + 1
     date = date or datetime.now().strftime("%Y-%m-%d")
-    name = f"Prog & Jazz Discovery — Week {week} ({date})"
+    scenes = st.get("scene_rotation", {}).get("scenes", DEFAULT_SCENES)
+    entry = scenes[(week - 1) % len(scenes)]
+    scene_short = entry.get("short", entry["name"]) if isinstance(entry, dict) else entry
+    name = f"Prog & Jazz Discovery — {date} · {scene_short}"
 
     _, pl = api_send(f"{API}/me/playlists", token,
                      {"name": name, "public": True,
-                      "description": f"Week {week} — core prog / jazz-fusion / fringe discovery. Auto-built."})
+                      "description": f"Week {week} · featured scene: {scene_short}. Editorial discovery — core prog / jazz-fusion / fringe lanes."})
     pid = pl["id"]
 
     uris = [t["uri"] for t in tracks]

@@ -20,14 +20,38 @@
   ],
   "scene_rotation": {
     "scenes": [
-      "Japanese prog",
-      "Zeuhl / Canterbury descendants",
-      "Scandinavian",
-      "Latin American",
-      "Eastern European",
-      "Israel / Middle East",
-      "Australian / NZ",
-      "East Asian jazz"
+      {
+        "name": "Japanese prog",
+        "short": "Japan"
+      },
+      {
+        "name": "Zeuhl / Canterbury descendants",
+        "short": "Zeuhl & Canterbury"
+      },
+      {
+        "name": "Scandinavian",
+        "short": "Scandinavia"
+      },
+      {
+        "name": "Latin American",
+        "short": "Latin America"
+      },
+      {
+        "name": "Eastern European",
+        "short": "Eastern Europe"
+      },
+      {
+        "name": "Israel / Middle East",
+        "short": "Middle East"
+      },
+      {
+        "name": "Australian / NZ",
+        "short": "Aus / NZ"
+      },
+      {
+        "name": "East Asian jazz",
+        "short": "East Asian Jazz"
+      }
     ],
     "note": "index = week_counter mod len"
   },

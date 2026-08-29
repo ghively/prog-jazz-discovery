@@ -86,7 +86,7 @@ From draft.json, pick the final ~38 honoring lane quotas and the max-4-per-subge
 ```
 python3 scripts/pipeline.py (this repo) publish
 ```
-Creates the playlist, adds in batches, verifies the count via API, and atomically updates state.json + appends attribution.jsonl ONLY on success. If it refuses (draft < 34) or reports MISMATCH, fix and re-run — do not deliver.
+Creates the playlist **named `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>`** (NO week numbers per owner preference, 2026-08-29 — the week counter lives in state.json and the playlist description only), adds in batches, verifies the count via API, and atomically updates state.json + appends attribution.jsonl ONLY on success. If it refuses (draft < 34) or reports MISMATCH, fix and re-run — do not deliver.
 
 ### 6. Capacities + deliver
 - Capacities: append edition summary to the daily note (title, URL, track count, lane breakdown, 3-5 blurbs). One Album object per highlighted track if quota allows; fall back to daily-note-only on 429.
@@ -114,12 +114,14 @@ the owner explicitly rejected listening-history personalization: this system exi
 
 ## Verification (every run)
 - [ ] publish reported `ok: true` AND `state_updated: true` (atomic — no partial bookkeeping)
+- [ ] Playlist title = `Prog & Jazz Discovery — YYYY-MM-DD · <Scene Short>` (no week number in the title)
 - [ ] Playlist live, count matches, lane breakdown printed
 - [ ] attribution.jsonl has this week's entry
 - [ ] Capacities daily note updated
 - [ ] Link + blurbs delivered to Gene
 
 ## Changelog
+- 2.0.2 (2026-08-29): playlist retitling per owner preference — no week numbers; format `Prog & Jazz Discovery — YYYY-MM-DD · <Scene Short>`; week counter lives in state.json + playlist description only. Scene wheel entries carry short display names. Week 1 renamed to date-only (pre-wheel edition, no false scene label).
 - 2.0.1 (2026-08-29): feedback lane REMOVED per Gene — listening-history personalization rejected (subvert the algorithm, editorial only; played ≠ enjoyed, saved = endorsement but that signal is parked). Replaced by editor's wildcard lane (2 slots, best finds of the week from any source). `seeds` subcommand retained purely as a passive saved-tracks recorder for a possible future catalog.
 - 2.0.0 (2026-08-29): lane architecture v2 — six lanes with slot quotas, source→lane map with per-source caps, TOTW auto-include, feedback loop via listening history, playlist sequencing, attribution log, atomic publish (state only updates on verified success), all Spotify mechanics moved into scripts/pipeline.py. Designed from the Week-1 postmortem: de facto pool-domination, silent bookkeeping failures, small-model context limits.
 - 1.0.4 (2026-08-29): mandatory playlist-count verification via API; Spotify API shape notes.
