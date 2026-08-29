@@ -38,9 +38,9 @@ Every source maps to lanes with a per-week cap (see SKILL.md). The candidate poo
 
 Every published track carries `{lane, source}` into `attribution.jsonl`. Source weighting stops being vibes; it's a queryable log.
 
-### Feedback loop
+### Personalization — deliberately absent
 
-`pipeline.py seeds` intersects the owner's recently-played/saved with last week's playlist → seed artists → the feedback lane picks stylistically-adjacent candidates (obscurity gate still applies). Playing music is the only input required. Reactions (🔥/🚫) on the delivery message can augment it.
+A listening-history feedback lane was built, proven live (it correctly detected which tracks the owner had played), and then **removed at the owner's direction**: this system exists to *subvert* algorithmic lock-in, and editorial sources are the whole point. Played ≠ enjoyed; only save-to-library is an endorsement, and even that signal stays parked. The `seeds` subcommand remains in pipeline.py purely as a passive recorder (it can list which of our tracks the owner saved) — a future personal-catalog importer, not a selection input. **Rule: no engagement signal ever feeds selection.**
 
 ### Mechanics moved out of the model
 

@@ -2,7 +2,7 @@
 name: prog-discovery-weekly
 description: "Use when running the weekly Prog & Jazz Discovery playlist."
 version: 2.0.0
-author: Gene Hively
+author: GregoryCloud
 license: MIT
 tags: [music, prog, jazz, playlist, spotify, discovery, weekly]
 metadata:
@@ -35,7 +35,9 @@ A replacement for a lapsed music-magazine subscription. Every Monday: build ONE 
 | fringe | 9 | Psych, post-rock, kraut-descended, experimental — adjacency to prog/jazz, NOT membership. This lane exists because the interesting music lives BETWEEN the categories |
 | scene | 4 | This week's featured scene (rotation wheel in state.json) — any lane's sound, from one geography |
 | archive | 2 | Pre-2015 obscure bands the user likely missed |
-| feedback | 2 | Styles/scenes adjacent to what the user actually played/saved (see `seeds` below) |
+| wildcard | 2 | **Editor's wildcard** — the two most exciting finds of the week from ANY source, regardless of lane fit. Pure editorial judgment |
+
+**NO listening-history personalization.** the owner explicitly rejected it (2026-08-29): the point of this system is to subvert algorithmic lock-in, not recreate it — played ≠ enjoyed; only saved-to-library counts as an endorsement, and that signal is PARKED (not built, not wanted yet). Selection stays 100% editorial: sources, lanes, quotas.
 
 Hard rules across lanes: max 4 tracks per subgenre tag; no artist repeat within 8 weeks; tracks never repeat; obscurity gate unchanged (skip >500k monthly listeners; borderline 200-500k only if <3 albums; legends never).
 
@@ -51,7 +53,7 @@ Hard rules across lanes: max 4 tracks per subgenre tag; no artist repeat within 
 | ProgArchives country charts (for scene lane) | scene | 3 |
 | r/postrock best-of, A Closer Listen, The Free Jazz Collective | fringe | 4 |
 | Bandcamp tags (psych, post-rock, zeuhl, jazz) | fringe, jazz-fusion | 4 |
-| Spotify related-artists of feedback seeds | feedback | 2 |
+| Spotify related-artists | (none — personalization REJECTED 2026-08-29; do not use listening history or related-artists-as-preference) | 0 |
 | Pre-researched candidate pool (`candidates-*.json`) | RESERVE ONLY | top-up short lanes, never primary feed |
 
 Why the caps: Week 1's de facto weight was ~70% candidate-pool (cheapest to fetch), which flattened diversity. Caps force source breadth; attribution (below) makes it auditable.
@@ -61,9 +63,8 @@ Why the caps: Week 1's de facto weight was ~70% candidate-pool (cheapest to fetc
 ### 1. Setup (one terminal call)
 ```
 python3 scripts/pipeline.py (this repo) scene    # this week's featured scene
-python3 scripts/pipeline.py (this repo) seeds    # what Gene played/saved from last week
 ```
-Read state.json for week counter + played history.
+Read state.json for week counter + played history. (Do NOT run `seeds` — listening-history personalization was rejected; the subcommand remains only as a passive likes-recorder for the future catalog, see below.)
 
 ### 2. Harvest (≤10 web calls, respect per-source caps)
 Fetch sources per the lane map. Write candidates to `~/.hermes/prog-discovery/candidates-week.json`:
@@ -91,8 +92,8 @@ Creates the playlist, adds in batches, verifies the count via API, and atomicall
 - Capacities: append edition summary to the daily note (title, URL, track count, lane breakdown, 3-5 blurbs). One Album object per highlighted track if quota allows; fall back to daily-note-only on 429.
 - Deliver to the job's origin channel: playlist URL, count, lane breakdown one-liner, 3-5 highlight blurbs. Tight — no wall of text.
 
-## Feedback loop (how it personalizes)
-`pipeline.py seeds` reads Gene's recently-played + saved tracks, intersects with last week's playlist, and returns seed artists. This week's feedback lane (2 slots) picks candidates stylistically adjacent to those seeds (Spotify related-artists is fine as a starting list — obscurity gate still applies). No input needed from Gene; playing music IS the input.
+## Feedback loop — REMOVED by design (2026-08-29)
+the owner explicitly rejected listening-history personalization: this system exists to SUBVERT algorithmic lock-in; editorial sources are the whole point. Played ≠ enjoyed; only a save-to-library is an endorsement, and even that signal is parked. **Never wire listening history, related-artists-as-preference, or any engagement signal into selection.** If Gene later asks for a personal catalog, the `seeds` subcommand already records his saved-from-our-playlists tracks passively in its output — it can become the importer then. Selection stays 100% editorial.
 
 ## Auth / failure modes
 - **Spotify 401** → refresh token revoked; the user must re-run `hermes auth spotify`. Report, don't retry.
@@ -119,7 +120,8 @@ Creates the playlist, adds in batches, verifies the count via API, and atomicall
 - [ ] Link + blurbs delivered to Gene
 
 ## Changelog
-- 2.0.0 (2026-08-29): lane architecture v2 — six lanes with slot quotas (12/9/9/4/2/2 of ~38), source→lane map with per-source caps, TOTW auto-include, feedback loop via listening history, playlist sequencing, attribution log, atomic publish (state only updates on verified success), all Spotify mechanics moved into scripts/pipeline.py. Designed from the Week-1 postmortem: de facto pool-domination, silent bookkeeping failures, small-model context limits.
+- 2.0.1 (2026-08-29): feedback lane REMOVED per Gene — listening-history personalization rejected (subvert the algorithm, editorial only; played ≠ enjoyed, saved = endorsement but that signal is parked). Replaced by editor's wildcard lane (2 slots, best finds of the week from any source). `seeds` subcommand retained purely as a passive saved-tracks recorder for a possible future catalog.
+- 2.0.0 (2026-08-29): lane architecture v2 — six lanes with slot quotas, source→lane map with per-source caps, TOTW auto-include, feedback loop via listening history, playlist sequencing, attribution log, atomic publish (state only updates on verified success), all Spotify mechanics moved into scripts/pipeline.py. Designed from the Week-1 postmortem: de facto pool-domination, silent bookkeeping failures, small-model context limits.
 - 1.0.4 (2026-08-29): mandatory playlist-count verification via API; Spotify API shape notes.
 - 1.0.3 (2026-08-29): small-model hardening (query format, limit:1, draft.json, ≤45-call budget).
 - 1.0.0 (2026-08-29): initial creation.
