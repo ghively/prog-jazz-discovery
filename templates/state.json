@@ -1,0 +1,26 @@
+{
+  "schema": "prog-discovery/state/v1",
+  "created": "<YYYY-MM-DD>",
+  "week_counter": 0,
+  "played_artists": [],
+  "played_tracks": [],
+  "excluded_legends": [
+    "Muse",
+    "Tool",
+    "Dream Theater",
+    "Opeth",
+    "Steven Wilson",
+    "Big Big Train",
+    "Nightwish",
+    "Enslaved",
+    "Karnivool",
+    "Ulver",
+    "Mono",
+    "Puscifer"
+  ],
+  "pkm": {
+    "project_id": null
+  },
+  "playlists": [],
+  "notes": "week_counter increments each successful run. played_artists = artists already featured (cooldown 8 weeks). played_tracks are Spotify URIs and never repeat. excluded_legends is your own never-eligible list — extend freely."
+}
