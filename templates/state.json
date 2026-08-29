@@ -1,5 +1,5 @@
 {
-  "schema": "prog-discovery/state/v1",
+  "schema": "prog-discovery/state/v2",
   "created": "<YYYY-MM-DD>",
   "week_counter": 0,
   "played_artists": [],
@@ -18,9 +18,22 @@
     "Mono",
     "Puscifer"
   ],
+  "scene_rotation": {
+    "scenes": [
+      "Japanese prog",
+      "Zeuhl / Canterbury descendants",
+      "Scandinavian",
+      "Latin American",
+      "Eastern European",
+      "Israel / Middle East",
+      "Australian / NZ",
+      "East Asian jazz"
+    ],
+    "note": "index = week_counter mod len"
+  },
   "pkm": {
     "project_id": null
   },
   "playlists": [],
-  "notes": "week_counter increments each successful run. played_artists = artists already featured (cooldown 8 weeks). played_tracks are Spotify URIs and never repeat. excluded_legends is your own never-eligible list — extend freely."
+  "notes": "v2: lanes (core-prog 12 / jazz-fusion 9 / fringe 9 / scene 4 / archive 2 / feedback 2), per-source caps, attribution.jsonl, atomic publish."
 }
