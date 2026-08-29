@@ -59,6 +59,10 @@ The agent does editorial work only: harvest judgment, lane selection, sequencing
 - Playlist GET nests track data at `items.items[].item` (not `item.track`); the count is `items.total`; the `/tracks` sub-endpoint 403s.
 - A cron run that dies mid-generation still reports **"completed"** to the scheduler. Never trust that flag; trust `publish`'s atomic `ok: true`.
 
+## Naming convention (2026-08-29)
+
+Playlists are titled `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>` — dated, featured scene visible, **no week numbers** (owner preference; the counter lives in state.json and the playlist description). Scene wheel entries carry short display names ("Zeuhl & Canterbury", "Aus / NZ") so titles stay tight on mobile. The first playlist was renamed date-only rather than retrofitted with a scene label it doesn't have — never label an artifact with a theme it wasn't built around.
+
 ## Invariant rules (unchanged from v1)
 
 - Obscurity gate: >500k monthly listeners excluded; borderline 200-500k only if <3 albums; legends never.

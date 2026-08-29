@@ -1,7 +1,7 @@
 ---
 name: prog-discovery-weekly
 description: "Use when running the weekly Prog & Jazz Discovery playlist."
-version: 2.0.0
+version: 2.0.2
 author: Gene Hively
 license: MIT
 tags: [music, prog, jazz, playlist, spotify, discovery, weekly]
