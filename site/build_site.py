@@ -841,11 +841,12 @@ def build_front(editions, artists):
         for t in x["tracks"]:
             tag_count[t["tag"]] = tag_count.get(t["tag"], 0) + 1
     theme = ed.get("theme", {})
-    src_links = []
+    src_seen = {}
     for key, s in ed["sources"].items():
         if s.get("url"):
-            src_links.append(f'<a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["outlet"])}</a>')
-    src_str = " · ".join(dict.fromkeys(src_links)) or "the standing pool"
+            src_seen.setdefault(s.get("outlet", s["name"]),
+                                f'<a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s.get("outlet", s["name"]))}</a>')
+    src_str = " · ".join(src_seen.values()) or "the standing pool"
 
     hero = f'''<section class="hero">
   <div class="hero-grid">
