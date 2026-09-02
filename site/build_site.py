@@ -363,6 +363,10 @@ blockquote.press{
   color:var(--neon2); text-transform:uppercase; margin-bottom:1rem;
 }
 .deepdive p.lead{font-size:1.04rem; line-height:1.7; color:#e0d4c0; margin-bottom:1.4rem}
+.deepdive p.dpara{font-size:1rem; line-height:1.7; color:#d8ccb8; margin:0 0 1.1rem}
+.deepdive p.dpara::first-letter{
+  font-size:1.6em; color:var(--neon); font-weight:700; font-family:'Alfa Slab One',serif;
+}
 .deepdive p.outro{font-size:1rem; line-height:1.7; color:#d8ccb8; margin-top:1.4rem;
   border-top:1px dashed #3a2a1a; padding-top:1.2rem}
 .trees{display:grid; grid-template-columns:1fr 1fr; gap:1.6rem}
@@ -378,13 +382,19 @@ blockquote.press{
   border-bottom:1px solid #3a2a1a; padding-bottom:.6rem; margin-bottom:.6rem;
 }
 .tree-items{list-style:none; padding:0; margin:0}
-.tree-items li{position:relative; padding:.42rem 0 .42rem 1.3rem;
+.tree-items li{position:relative; display:flex; gap:.7rem; align-items:flex-start;
+  padding:.5rem 0 .5rem 1.3rem;
   border-bottom:1px dotted #2c2012; font-size:.86rem; color:#d8ccb8; line-height:1.5}
 .tree-items li:last-child{border-bottom:none}
 .tree-items li::before{
-  content:"└"; position:absolute; left:0; top:.42rem; color:var(--sticker-tan);
+  content:"└"; position:absolute; left:0; top:.5rem; color:var(--sticker-tan);
   font-family:'Courier Prime',monospace;
 }
+.tree-items li img{width:44px; height:44px; border-radius:2px; object-fit:cover; flex:0 0 auto;
+  transform:rotate(-1.5deg); box-shadow:0 2px 5px rgba(0,0,0,.5); margin-top:.05rem;
+  border:1px solid rgba(255,240,200,.2)}
+.node-blank{width:44px; height:44px; flex:0 0 auto; border-radius:2px;
+  background:rgba(233,226,208,.05); border:1px dashed #3a2a1a}
 .tree-items li b{color:#f2e7cf}
 .here-mark{
   display:inline-block; margin-left:.45rem; padding:.06rem .4rem;
@@ -764,12 +774,21 @@ def build_edition(e, artists):
     deep = theme.get("deep", {})
     deep_block = ""
     if deep:
+        art_of = {}
+        for tr in tracks:
+            an = artist_name(tr)
+            if an not in art_of and tr.get("album_art"):
+                art_of[an] = tr["album_art"]
+        paras = "".join(f'<p class="dpara">{esc(p)}</p>' for p in deep.get("paras", []))
         trees = []
         for t in deep.get("trees", []):
             items = []
             for it in t.get("items", []):
                 mark = '<span class="here-mark">◆ THIS EDITION</span>' if it.get("here") else ""
-                items.append(f'''<li><span class="node"><b>{esc(it["name"])}</b> — {esc(it["note"])}{mark}</span></li>''')
+                art = art_of.get(it["name"].split(" (")[0].split(" →")[0].strip())
+                img = (f'<img loading="lazy" src="{esc(art)}" alt="">' if art else
+                       '<span class="node-blank"></span>')
+                items.append(f'''<li>{img}<span class="node"><b>{esc(it["name"])}</b> — {esc(it["note"])}{mark}</span></li>''')
             trees.append(f'''<div class="tree">
   <div class="tree-title">{esc(t["title"])}</div>
   <div class="tree-root mono">{esc(t["root"])}</div>
@@ -779,6 +798,7 @@ def build_edition(e, artists):
         deep_block = f'''<section class="deepdive">
   <h2>THE DEEP DIVE — {esc(theme.get("name", "").upper())}</h2>
   <p class="lead">{esc(deep.get("intro", ""))}</p>
+  {paras}
   <div class="trees">{"".join(trees)}</div>
   <p class="outro">{esc(deep.get("outro", ""))}</p>
 </section>'''
