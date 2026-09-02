@@ -22,42 +22,114 @@
     "scenes": [
       {
         "name": "Japanese prog",
-        "short": "Japan"
+        "short": "Japan",
+        "mode": "lineage",
+        "angle": "Kenso and Ain Soph's 70s studio sessions through Koenjihyakkei's zeuhl export and Tokyo's current underground \u2014 one unbroken line."
       },
       {
         "name": "Zeuhl / Canterbury descendants",
-        "short": "Zeuhl & Canterbury"
+        "short": "Zeuhl & Canterbury",
+        "mode": "lineage",
+        "angle": "Magma 1969 and the Canterbury caf\u00e9s through to today's carriers in France, Japan and beyond."
       },
       {
         "name": "Scandinavian",
-        "short": "Scandinavia"
+        "short": "Scandinavia",
+        "mode": "living",
+        "angle": "What Norway/Sweden/Finland are pressing right now: post-rock melancholy, jazz-trained players, small-label cooperatives."
       },
       {
         "name": "Latin American",
-        "short": "Latin America"
+        "short": "Latin America",
+        "mode": "living",
+        "angle": "Current Argentinian/Chilean/Mexican prog and fusion output; one root (e.g. MIA-era Buenos Aires) allowed if it explains the sound."
       },
       {
         "name": "Eastern European",
-        "short": "Eastern Europe"
+        "short": "Eastern Europe",
+        "mode": "living",
+        "angle": "Today's Polish/Czech/Hungarian scenes \u2014 festivals, listener clubs, and new bands carrying the 70s heritage forward."
       },
       {
         "name": "Israel / Middle East",
-        "short": "Middle East"
+        "short": "Middle East",
+        "mode": "living",
+        "angle": "The active Tel Aviv prog/jazz axis and its diaspora \u2014 current releases, one root permitted."
       },
       {
         "name": "Australian / NZ",
-        "short": "Aus / NZ"
+        "short": "Aus / NZ",
+        "mode": "living",
+        "angle": "What Melbourne/Sydney/Auckland are releasing now: psych-festival culture and jazz-fusion collectives."
       },
       {
         "name": "East Asian jazz",
-        "short": "East Asian Jazz"
+        "short": "East Asian Jazz",
+        "mode": "living",
+        "angle": "Seoul/Tokyo/Shanghai jazz-fusion as it stands this year \u2014 technically luminous, culturally restless."
+      },
+      {
+        "name": "Rock In Opposition",
+        "short": "RIO",
+        "mode": "lineage",
+        "proposed": true,
+        "angle": "PROPOSAL: The 1978 movement (Henry Cow, Univers Zero, Present) to today's ReR/Cuneiform torch-carriers."
+      },
+      {
+        "name": "Canterbury scene 1970\u20131975",
+        "short": "Canterbury '70\u2013'75",
+        "mode": "moment",
+        "proposed": true,
+        "angle": "PROPOSAL: One scene, five years \u2014 the Whitstable pubs, Soft Machine splits, and the scene's peak run."
+      },
+      {
+        "name": "Paris 1970: the year zeuhl arrived",
+        "short": "Paris 1970",
+        "mode": "moment",
+        "proposed": true,
+        "angle": "PROPOSAL: City-and-year \u2014 Paris 1970, Koba\u00efa lands, French rock reorganizes around Magma."
+      },
+      {
+        "name": "Lead bass: Chapman Stick & fretless traditions",
+        "short": "Lead Bass",
+        "mode": "microgenre",
+        "proposed": true,
+        "angle": "PROPOSAL: Instrument tradition \u2014 Stick/fretless/8-string players carrying the melody, Levin to today's Bandcamp soloists."
+      },
+      {
+        "name": "Jazztronica",
+        "short": "Jazztronica",
+        "mode": "microgenre",
+        "proposed": true,
+        "angle": "PROPOSAL: Synth beds under jazz improvisation \u2014 the continuum from the 90s Nordic wave to today's practitioners."
+      },
+      {
+        "name": "Dark Jazz",
+        "short": "Dark Jazz",
+        "mode": "microgenre",
+        "proposed": true,
+        "angle": "PROPOSAL: Bohren-grade noir \u2014 slow horns, film-noir air, and who keeps it alive now."
+      },
+      {
+        "name": "Math-rock",
+        "short": "Math-Rock",
+        "mode": "microgenre",
+        "proposed": true,
+        "angle": "PROPOSAL: Louisville origins via toe/TTNG to current Bandcamp tremolo-pickers."
+      },
+      {
+        "name": "Kraut Revival",
+        "short": "Kraut Revival",
+        "mode": "microgenre",
+        "proposed": true,
+        "angle": "PROPOSAL: Motorik 2026 \u2014 who is actually channeling Neu!/Can rather than name-checking them."
       }
     ],
-    "note": "index = week_counter mod len"
+    "note": "index = week_counter mod len. Each entry carries mode (lineage|living|moment|microgenre) + angle. The agent may argue a different mode for the week if the harvest supports it; record scene_mode + scene_reason in state.playlists[] and edition.json. proposed:true entries are suggestions pending Gene's approval."
   },
   "pkm": {
     "project_id": null
   },
   "playlists": [],
-  "notes": "v2: lanes (core-prog 12 / jazz-fusion 9 / fringe 9 / scene 4 / archive 2 / feedback 2), per-source caps, attribution.jsonl, atomic publish."
+  "notes": "v2: lanes (core-prog 12 / jazz-fusion 9 / fringe 9 / scene 4 / archive 2 / wildcard 2), per-source caps, attribution.jsonl, atomic publish."
 }

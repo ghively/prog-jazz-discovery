@@ -4,19 +4,19 @@
   "scene": "Zeuhl & Canterbury descendants",
   "playlist_url": "https://open.spotify.com/playlist/2ttQxt1MEfs8DpgMmxCFlu",
   "playlist_id": "2ttQxt1MEfs8DpgMmxCFlu",
-  "playlist_title": "Prog & Jazz Discovery — 2026-08-31 · Zeuhl & Canterbury",
-  "editor_note": "Week Two of the experiment: thirty-eight tracks pulled almost entirely from the week's editorial — Prog magazine's Tracks Of The Week, The Progspace's release roundups, The Progressive Subway's reviews, The PROG Mind, Arctic Drones on the fusion side, and the Free Jazz Collective. The idea is the old one: a magazine you can listen to. Every track below carries a note on where it came from and why it's here. No algorithms were consulted.",
+  "playlist_title": "Prog & Jazz Discovery \u2014 2026-08-31 \u00b7 Zeuhl & Canterbury",
+  "editor_note": "Week Two of the experiment: thirty-eight tracks pulled almost entirely from the week's editorial \u2014 Prog magazine's Tracks Of The Week, The Progspace's release roundups, The Progressive Subway's reviews, The PROG Mind, Arctic Drones on the fusion side, and the Free Jazz Collective. The idea is the old one: a magazine you can listen to. Every track below carries a note on where it came from and why it's here. No algorithms were consulted.",
   "sources": {
     "TOTW": {
-      "name": "Prog — Tracks Of The Week",
+      "name": "Prog \u2014 Tracks Of The Week",
       "outlet": "Louder (loudersound.com/prog)",
       "author": "Jerry Ewing",
       "date": "2026-08-28",
       "url": "https://www.loudersound.com/music/music-videos/great-new-prog-tracks-from-chimpan-a-polyphia-dikajee-and-more-in-progs-brand-new-tracks-of-the-week",
-      "note": "The single best weekly new-band feed in prog — the spiritual successor to the magazine's print era."
+      "note": "The single best weekly new-band feed in prog \u2014 the spiritual successor to the magazine's print era."
     },
     "TOTW_prior": {
-      "name": "Prog — Tracks Of The Week (previous edition)",
+      "name": "Prog \u2014 Tracks Of The Week (previous edition)",
       "outlet": "Louder (loudersound.com/prog)",
       "author": "Jerry Ewing",
       "date": "2026-08-21",
@@ -24,87 +24,87 @@
       "note": "The prior week's column, harvested for stragglers still in eligibility."
     },
     "Progspace_hub": {
-      "name": "The Progspace — Releases of the Week",
+      "name": "The Progspace \u2014 Releases of the Week",
       "outlet": "theprogspace.com",
       "url": "https://theprogspace.com/album_releases/",
       "note": "Weekly release roundups with mini-reviews; the broadest net for new prog."
     },
     "Progspace_dimhav": {
-      "name": "Releases of the Week 22/2026 — Dimhav's Ondine featured",
+      "name": "Releases of the Week 22/2026 \u2014 Dimhav's Ondine featured",
       "outlet": "theprogspace.com",
       "author": "Dario",
       "url": "https://theprogspace.com/album_releases/week-22-2026/",
       "note": "\"One of the most engaging and fun listens as far as Classic Melodic Prog Metal with a symphonic edge is concerned in quite some time.\""
     },
     "Progspace_volubilis": {
-      "name": "Volubilis premiere — Le Flamboiement Stellaire",
+      "name": "Volubilis premiere \u2014 Le Flamboiement Stellaire",
       "outlet": "theprogspace.com",
       "author": "Dario",
       "date": "2026-06-18",
       "url": "https://theprogspace.com/volubilis-le-flamboiement-stellaire-single-premiere/",
-      "note": "\"Canada and Tech Death go together like France and wine\" — a premiere of the second single."
+      "note": "\"Canada and Tech Death go together like France and wine\" \u2014 a premiere of the second single."
     },
     "Subway_tfo": {
-      "name": "Review: Trust Fund Ozu — ARTiCHOKE",
+      "name": "Review: Trust Fund Ozu \u2014 ARTiCHOKE",
       "outlet": "The Progressive Subway",
       "author": "Dave",
       "date": "2026-03-20",
       "url": "https://theprogressivesubway.com/2026/03/20/review-trust-fund-ozu-artichoke/",
-      "note": "\"Hyperpop, VGM, progressive rock… for fans of Knower, Danny Baranowsky, Death's Dynamic Shroud.\""
+      "note": "\"Hyperpop, VGM, progressive rock\u2026 for fans of Knower, Danny Baranowsky, Death's Dynamic Shroud.\""
     },
     "Subway_iv": {
-      "name": "Review: Inner Vitriol — Semper Tacui",
+      "name": "Review: Inner Vitriol \u2014 Semper Tacui",
       "outlet": "The Progressive Subway",
       "author": "Dave",
       "date": "2026-04-02",
       "url": "https://theprogressivesubway.com/2026/04/02/review-inner-vitriol-semper-tacui/",
-      "note": "Italian dark prog metal, fourteen years after the debut — with Geoff Tate and Andy Kuntz guesting."
+      "note": "Italian dark prog metal, fourteen years after the debut \u2014 with Geoff Tate and Andy Kuntz guesting."
     },
     "Subway_exxul": {
-      "name": "Review: Exxûl — Sealed into None",
+      "name": "Review: Exx\u00fbl \u2014 Sealed into None",
       "outlet": "The Progressive Subway",
       "author": "Andy",
       "date": "2026-01-27",
       "url": "https://theprogressivesubway.com/2026/01/27/review-exxul-sealed-into-none/",
-      "note": "Epic doom / US power metal cross — \"for fans of Atlantean Kodex, Queensrÿche, Warlord, Fates Warning.\""
+      "note": "Epic doom / US power metal cross \u2014 \"for fans of Atlantean Kodex, Queensr\u00ffche, Warlord, Fates Warning.\""
     },
     "Subway_protomen": {
-      "name": "Review: The Protomen — Act III: This City Made Us",
+      "name": "Review: The Protomen \u2014 Act III: This City Made Us",
       "outlet": "The Progressive Subway",
       "author": "Christopher",
       "date": "2026-01-05",
       "url": "https://theprogressivesubway.com/2026/01/05/review-the-protomen-act-iii-this-city-made-us/",
-      "note": "\"Rock opera, hard rock, progressive rock, synthwave… for fans of Meat Loaf, Queen, Journey, Gunship.\" From Tennessee, no less."
+      "note": "\"Rock opera, hard rock, progressive rock, synthwave\u2026 for fans of Meat Loaf, Queen, Journey, Gunship.\" From Tennessee, no less."
     },
     "Subway_hub": {
-      "name": "The Progressive Subway — recent reviews",
+      "name": "The Progressive Subway \u2014 recent reviews",
       "outlet": "theprogressivesubway.com",
       "url": "https://theprogressivesubway.com/",
-      "note": "The best beat covering lesser-known prog — reviews with recommended-for-fans lineages."
+      "note": "The best beat covering lesser-known prog \u2014 reviews with recommended-for-fans lineages."
     },
     "TPM_paradoxtwin": {
-      "name": "The Paradox Twin — A Romance of Many Dimensions",
+      "name": "The Paradox Twin \u2014 A Romance of Many Dimensions",
       "outlet": "The PROG Mind",
       "date": "2026-04-17",
       "url": "https://theprogmind.com/2026/04/17/the-paradox-twin-a-romance-of-many-dimensions/",
-      "note": "UK band pushes through lineup upheaval; \"shadow-dropped their third album… and it is proving to be terrific.\""
+      "note": "UK band pushes through lineup upheaval; \"shadow-dropped their third album\u2026 and it is proving to be terrific.\""
     },
     "TPM_argovia": {
-      "name": "Argovia — Primal Repetition",
+      "name": "Argovia \u2014 Primal Repetition",
       "outlet": "The PROG Mind",
       "date": "2026-04-24",
       "url": "https://theprogmind.com/2026/04/24/argovia-primal-repetition/",
       "note": "Colombian band's first full-length, \"head and shoulders above\" the 2024 EP."
     },
     "TPM_lostinspsalms": {
-      "name": "Lost in Psalms — End of a Kalpa",
+      "name": "Lost in Psalms \u2014 End of a Kalpa",
       "outlet": "The PROG Mind",
       "date": "2026-02-20",
       "url": "https://theprogmind.com/2026/02/20/lost-in-psalms-end-of-a-kalpa/",
       "note": "Costa Rican project of multi-instrumentalist Gerardo Ruiz; kalpa = aeon."
     },
     "ArcticDrones_hub": {
-      "name": "Arctic Drones — Jazz Fusion / Nu Jazz coverage",
+      "name": "Arctic Drones \u2014 Jazz Fusion / Nu Jazz coverage",
       "outlet": "arcticdrones.net",
       "url": "https://arcticdrones.net/category/jazz-fusion-nu-jazz/",
       "note": "The jazz-fusion side of the harvest: release roundups, best-of lists, and their always-updated 2026 mix."
@@ -116,7 +116,7 @@
       "note": "Long-running collective blog; the fringe lane's free-jazz conscience."
     },
     "Bandcamp": {
-      "name": "Bandcamp — prog & jazz-fusion discovery tags",
+      "name": "Bandcamp \u2014 prog & jazz-fusion discovery tags",
       "outlet": "bandcamp.com",
       "url": "https://bandcamp.com/tag/progressive-rock",
       "note": "Direct-from-artist digging; the tags surface self-released records the magazines haven't caught yet."
@@ -125,7 +125,7 @@
       "name": "ProgArchives",
       "outlet": "progarchives.com",
       "url": "https://www.progarchives.com/",
-      "note": "The encyclopedic database — where the scene and archive lanes get their history checked."
+      "note": "The encyclopedic database \u2014 where the scene and archive lanes get their history checked."
     },
     "postrock": {
       "name": "r/postrock",
@@ -143,192 +143,192 @@
   "blurbs": {
     "spotify:track:3F59wItYRllfGVIkFCBmQb": {
       "src": "Progspace_dimhav",
-      "text": "The Lindroth brothers' sophomore opus Ondine — \"one of the most engaging and fun listens as far as Classic Melodic Prog Metal with a symphonic edge is concerned in quite some time,\" per The Progspace. Fusion-y synth leads, groovy riffing, and former Lost Horizon voice Daniel Heiman on top. Opening the playlist with a statement.",
+      "text": "The Lindroth brothers' sophomore opus Ondine \u2014 \"one of the most engaging and fun listens as far as Classic Melodic Prog Metal with a symphonic edge is concerned in quite some time,\" per The Progspace. Fusion-y synth leads, groovy riffing, and former Lost Horizon voice Daniel Heiman on top. Opening the playlist with a statement.",
       "quote": null
     },
     "spotify:track:2IromxtGk6yjUf3jWp9Y8E": {
       "src": "ArcticDrones_hub",
-      "text": "Zappa-esque satirical chaos meets virtuosic jazz fusion. The most fun find of the week — a band whose name alone earns a slot, and whose music somehow lives up to it.",
+      "text": "Zappa-esque satirical chaos meets virtuosic jazz fusion. The most fun find of the week \u2014 a band whose name alone earns a slot, and whose music somehow lives up to it.",
       "quote": null
     },
     "spotify:track:09YtNcRsr7FR2flD9nazlY": {
       "src": "TOTW",
-      "text": "From Prog's Tracks Of The Week: chiming guitars and mellifluous vocals that earned them the tag \"Britain's answer to Sigur Rós.\" The album launch show is at The Nest, Nottingham, September 15.",
-      "quote": "\"Britain's answer to Sigur Rós\" — Prog"
+      "text": "From Prog's Tracks Of The Week: chiming guitars and mellifluous vocals that earned them the tag \"Britain's answer to Sigur R\u00f3s.\" The album launch show is at The Nest, Nottingham, September 15.",
+      "quote": "\"Britain's answer to Sigur R\u00f3s\" \u2014 Prog"
     },
     "spotify:track:70gMqrCiOHrmY8ICmCeS4J": {
       "src": "TOTW",
-      "text": "The French quartet's latest single from November's Trame Noire — and it's a busy season: a 13-album box set celebrating twenty years drops the same day, with their 2007 debut on vinyl for the first time.",
-      "quote": "\"Direct and raw, the track unfolds over a relatively short span of time for an Hypno5e song… ending in a frantic chaos that announces the album's second half.\" — the band"
+      "text": "The French quartet's latest single from November's Trame Noire \u2014 and it's a busy season: a 13-album box set celebrating twenty years drops the same day, with their 2007 debut on vinyl for the first time.",
+      "quote": "\"Direct and raw, the track unfolds over a relatively short span of time for an Hypno5e song\u2026 ending in a frantic chaos that announces the album's second half.\" \u2014 the band"
     },
     "spotify:track:6N7xfL2lTWRuFS2MVbAxkl": {
       "src": "ArcticDrones_hub",
-      "text": "Cut-throat fusion with a composer's discipline — pulled from Arctic Drones' jazz-fusion roundup coverage of the Ictus sessions.",
+      "text": "Cut-throat fusion with a composer's discipline \u2014 pulled from Arctic Drones' jazz-fusion roundup coverage of the Ictus sessions.",
       "quote": null
     },
     "spotify:track:2UKQtt7xMDKcrE5oGkAfYV": {
       "src": "TOTW",
-      "text": "A live-in-studio recording from Studio de la Fuie, ahead of second album Terminal (October 23, Klonosphere). The band on the track: about ancestors, and \"bonds and interactions… more respectful of differences and more integrated into their environment.\"",
-      "quote": "\"This track refers to ancestors and their knowledge.\" — Could Seed"
+      "text": "A live-in-studio recording from Studio de la Fuie, ahead of second album Terminal (October 23, Klonosphere). The band on the track: about ancestors, and \"bonds and interactions\u2026 more respectful of differences and more integrated into their environment.\"",
+      "quote": "\"This track refers to ancestors and their knowledge.\" \u2014 Could Seed"
     },
     "spotify:track:00WnPNxk1Lmd1HqGmxIhqs": {
       "src": "Subway_exxul",
-      "text": "Epic doom crossed with US power metal from Canada — recommended by The Progressive Subway \"for fans of Atlantean Kodex, Queensrÿche, Crimson Glory, Warlord, Lost Horizon, Fates Warning.\" That lineage list is a genre map all by itself.",
+      "text": "Epic doom crossed with US power metal from Canada \u2014 recommended by The Progressive Subway \"for fans of Atlantean Kodex, Queensr\u00ffche, Crimson Glory, Warlord, Lost Horizon, Fates Warning.\" That lineage list is a genre map all by itself.",
       "quote": null
     },
     "spotify:track:76dHl6GuPUqb2Bo3SGYTzz": {
       "src": "Bandcamp",
-      "text": "London improvisers whose Balm sessions capture the band's live telepathy on record — Satori runs nine minutes of slow-burning collective improv. Found in the Bandcamp tags, well beneath the editorial radar.",
+      "text": "London improvisers whose Balm sessions capture the band's live telepathy on record \u2014 Satori runs nine minutes of slow-burning collective improv. Found in the Bandcamp tags, well beneath the editorial radar.",
       "quote": null
     },
     "spotify:track:0PhCbeNRtuEsIMX8CYYAwv": {
       "src": "ArcticDrones_hub",
-      "text": "Composer-led fusion from the Kimatika sessions — Arctic Drones' nu-jazz coverage keeps surfacing records that straddle composition and improvisation; this is one of them.",
+      "text": "Composer-led fusion from the Kimatika sessions \u2014 Arctic Drones' nu-jazz coverage keeps surfacing records that straddle composition and improvisation; this is one of them.",
       "quote": null
     },
     "spotify:track:10vjuLFB9dGlq4ieIqRXdH": {
       "src": "Progspace_volubilis",
-      "text": "\"Canada and Tech Death go together like France and wine,\" says The Progspace of this Quebec outfit — blistering leads, fretless bass, blast beats, and a title that translates roughly to \"the stellar blaze.\" The second single from Theasterion.",
+      "text": "\"Canada and Tech Death go together like France and wine,\" says The Progspace of this Quebec outfit \u2014 blistering leads, fretless bass, blast beats, and a title that translates roughly to \"the stellar blaze.\" The second single from Theasterion.",
       "quote": null
     },
     "spotify:track:4H4EmkuWdkaNcdzGyA0hzf": {
       "src": "Bandcamp",
-      "text": "Self-titled, lowercase, lowercase track title — dijon is bedroom-recorded jazz-hop-adjacent fusion that Bandcamp's tags do better than any magazine could.",
+      "text": "Self-titled, lowercase, lowercase track title \u2014 dijon is bedroom-recorded jazz-hop-adjacent fusion that Bandcamp's tags do better than any magazine could.",
       "quote": null
     },
     "spotify:track:7I4AkS4aAugbtkKW6TXXSQ": {
       "src": "postrock",
-      "text": "Swedish post-rock lifers, twenty years in. Tree of Life is the slow-build centerpiece of And The Dead Tree Gives No Shelter — r/postrock's find, the fringe lane's gain.",
+      "text": "Swedish post-rock lifers, twenty years in. Tree of Life is the slow-build centerpiece of And The Dead Tree Gives No Shelter \u2014 r/postrock's find, the fringe lane's gain.",
       "quote": null
     },
     "spotify:track:4CW9fj0aZMtc4652Xnr7Ha": {
       "src": "Subway_hub",
-      "text": "Indonesian djent with genuine melodic patience — The Progressive Subway's coverage of the Dove sessions flagged them as ones to watch, and the title track bears it out.",
+      "text": "Indonesian djent with genuine melodic patience \u2014 The Progressive Subway's coverage of the Dove sessions flagged them as ones to watch, and the title track bears it out.",
       "quote": null
     },
     "spotify:track:0Lci5APIpJjwtCt8AMLlvp": {
       "src": "reserve",
-      "text": "Newcastle jazz-punk energy with a wit most fusion forgets to bring — Carpet Doctor sounds like its title, in the best way. Held from the Week 1 pool and deployed now.",
+      "text": "Newcastle jazz-punk energy with a wit most fusion forgets to bring \u2014 Carpet Doctor sounds like its title, in the best way. Held from the Week 1 pool and deployed now.",
       "quote": null
     },
     "spotify:track:5z44rf6zPmfClQqfSugvXx": {
       "src": "FJC",
-      "text": "Berne's Snakeoil-adjacent chamber aggression — the Free Jazz Collective keeps the fringe lane honest, and Oddly Enough is alto-sax architecture at its most deliberate.",
+      "text": "Berne's Snakeoil-adjacent chamber aggression \u2014 the Free Jazz Collective keeps the fringe lane honest, and Oddly Enough is alto-sax architecture at its most deliberate.",
       "quote": null
     },
     "spotify:track:3uIzddyotvprzsfJ8e6CwM": {
       "src": "Subway_iv",
-      "text": "Fourteen years after their debut, the Italian dark-prog metallers returned — and booked Geoff Tate (Queensrÿche) and Andy Kuntz (Vanden Plas) as guests. Weaker and Fading is the Tate duet. Semper Tacui: \"I have always stayed silent.\"",
+      "text": "Fourteen years after their debut, the Italian dark-prog metallers returned \u2014 and booked Geoff Tate (Queensr\u00ffche) and Andy Kuntz (Vanden Plas) as guests. Weaker and Fading is the Tate duet. Semper Tacui: \"I have always stayed silent.\"",
       "quote": null
     },
     "spotify:track:77Upj6QTmlbhRqesiCYgGA": {
       "src": "Bandcamp",
-      "text": "Warsaw noir-jazz — Niechęć means \"reluctance/aversion,\" and Reckless Things plays like a Rybczyński film sounds: neon, rain, distrust. Nowe płuca (\"new lungs\") is the record breathing in.",
+      "text": "Warsaw noir-jazz \u2014 Niech\u0119\u0107 means \"reluctance/aversion,\" and Reckless Things plays like a Rybczy\u0144ski film sounds: neon, rain, distrust. Nowe p\u0142uca (\"new lungs\") is the record breathing in.",
       "quote": null
     },
     "spotify:track:0nZj6UgjZ78pYJhG36zSRU": {
       "src": "Bandcamp",
-      "text": "Portland doom-psych on the heavier edge of the fringe lane — Spades rides a riff that would level a smaller band.",
+      "text": "Portland doom-psych on the heavier edge of the fringe lane \u2014 Spades rides a riff that would level a smaller band.",
       "quote": null
     },
     "spotify:track:01XV9RtSmLIoERz6TCbuXd": {
       "src": "Subway_protomen",
-      "text": "WILDCARD. The Mega Man rock opera finally delivered Act III after seventeen years — dueling vocals, Blade Runner keys, pure Meat Loaf-scale theater. From Tennessee, of all places. The Subway's review lineup says it all: \"for fans of Meat Loaf, Queen, Journey, Gunship, Dirt Poor Robins.\"",
+      "text": "WILDCARD. The Mega Man rock opera finally delivered Act III after seventeen years \u2014 dueling vocals, Blade Runner keys, pure Meat Loaf-scale theater. From Tennessee, of all places. The Subway's review lineup says it all: \"for fans of Meat Loaf, Queen, Journey, Gunship, Dirt Poor Robins.\"",
       "quote": null
     },
     "spotify:track:73UWmak0o1rM6SQ03Oybof": {
       "src": "TOTW",
-      "text": "UK art-rockers who rang Andy Fairweather Low — \"a Welsh hero,\" per the band — for the voice-of-reason role, and got a suitably dramatic video with it. A new EP, out now; not on the acclaimed Music Is Art — Vol. 1.",
-      "quote": "\"He is a Welsh hero. We were looking for the voice of reason, so it had to be mature.\" — Chimpan A"
+      "text": "UK art-rockers who rang Andy Fairweather Low \u2014 \"a Welsh hero,\" per the band \u2014 for the voice-of-reason role, and got a suitably dramatic video with it. A new EP, out now; not on the acclaimed Music Is Art \u2014 Vol. 1.",
+      "quote": "\"He is a Welsh hero. We were looking for the voice of reason, so it had to be mature.\" \u2014 Chimpan A"
     },
     "spotify:track:5MeRLYevGwkEKqpsQSsLxH": {
       "src": "reserve",
-      "text": "Guitarist's-guitarist fusion from the Convergence sessions — another Week 1 pool holdover earning its slot on phrasing alone.",
+      "text": "Guitarist's-guitarist fusion from the Convergence sessions \u2014 another Week 1 pool holdover earning its slot on phrasing alone.",
       "quote": null
     },
     "spotify:track:1LgxdaKouyxqEmG1GoWWiw": {
       "src": "postrock",
-      "text": "Brussels quartet scoring silent cinema live — Assassins comes from their Pinocchio soundtrack work: post-rock with an actual pit-orchestra sense of drama.",
+      "text": "Brussels quartet scoring silent cinema live \u2014 Assassins comes from their Pinocchio soundtrack work: post-rock with an actual pit-orchestra sense of drama.",
       "quote": null
     },
     "spotify:track:0xIfYcrViPCW6lVHhRU2o2": {
       "src": "TPM_paradoxtwin",
-      "text": "UK neo-prog that pushed through considerable lineup upheaval — The PROG Mind: they \"shadow-dropped their third album… and it is proving to be terrific.\" Linter is the tightest three minutes of it.",
+      "text": "UK neo-prog that pushed through considerable lineup upheaval \u2014 The PROG Mind: they \"shadow-dropped their third album\u2026 and it is proving to be terrific.\" Linter is the tightest three minutes of it.",
       "quote": null
     },
     "spotify:track:0GrPEhIDM0bdE93pfb3iI2": {
       "src": "ArcticDrones_hub",
-      "text": "A \"spectacular avant-jazz debut, driven by thrilling world-building and bold, imaginative arrangements\" — Arctic Drones' own words on Philosophie du Soi. Métamorphose is the thesis statement.",
-      "quote": "\"A spectacular avant-jazz debut, driven by thrilling world-building and bold, imaginative arrangements.\" — Arctic Drones"
+      "text": "A \"spectacular avant-jazz debut, driven by thrilling world-building and bold, imaginative arrangements\" \u2014 Arctic Drones' own words on Philosophie du Soi. M\u00e9tamorphose is the thesis statement.",
+      "quote": "\"A spectacular avant-jazz debut, driven by thrilling world-building and bold, imaginative arrangements.\" \u2014 Arctic Drones"
     },
     "spotify:track:08OsGYmEA6x1Af8WobsJQU": {
       "src": "FJC",
-      "text": "Pianist-composer at the head of a room-filling ensemble — Drift is exactly what the title claims, until it isn't. The Free Jazz Collective's beat keeps the fringe lane's improv credentials current.",
+      "text": "Pianist-composer at the head of a room-filling ensemble \u2014 Drift is exactly what the title claims, until it isn't. The Free Jazz Collective's beat keeps the fringe lane's improv credentials current.",
       "quote": null
     },
     "spotify:track:7hnZg2to4y6xm3asHmJGzY": {
       "src": "TPM_argovia",
-      "text": "Colombian prog-metal, first full-length — The PROG Mind first flagged their 2024 EP and now calls Primal Repetition \"head and shoulders above\" it. The Same River is the calm-center showcase.",
+      "text": "Colombian prog-metal, first full-length \u2014 The PROG Mind first flagged their 2024 EP and now calls Primal Repetition \"head and shoulders above\" it. The Same River is the calm-center showcase.",
       "quote": null
     },
     "spotify:track:350t84BbIGEzTwyJZWe29A": {
       "src": "reserve",
-      "text": "Wonky, analog-worshiping fusion — the idiosyncratic capitalization is the manifesto. Pool holdover, deployed where the sequencing needed a grin.",
+      "text": "Wonky, analog-worshiping fusion \u2014 the idiosyncratic capitalization is the manifesto. Pool holdover, deployed where the sequencing needed a grin.",
       "quote": null
     },
     "spotify:track:3jNesgmvKCBIiQSzFKwHLB": {
       "src": "Bandcamp",
-      "text": "Art-rock from the Somnambulist sessions — found in the tags, sleepwalking its way into the middle of Side C.",
+      "text": "Art-rock from the Somnambulist sessions \u2014 found in the tags, sleepwalking its way into the middle of Side C.",
       "quote": null
     },
     "spotify:track:5V4MIrVuU5HrobVKjvodfs": {
       "src": "Progspace_hub",
-      "text": "Echoes of the Hypermind indeed — crossover prog with a metric screw loose, surfaced in The Progspace's weekly release sweep.",
+      "text": "Echoes of the Hypermind indeed \u2014 crossover prog with a metric screw loose, surfaced in The Progspace's weekly release sweep.",
       "quote": null
     },
     "spotify:track:5iW8YrUo6qMtNQBTehpPeL": {
       "src": "ProgArchives",
-      "text": "FEATURED SCENE — Zeuhl & Canterbury. National Health is the Canterbury sound at full orchestral tilt: Dave Stewart's chords, Alan Gowen's keys, and Tenemos Roads as the gateway. 1978, and still ahead of most things.",
+      "text": "FEATURED SCENE \u2014 Zeuhl & Canterbury. National Health is the Canterbury sound at full orchestral tilt: Dave Stewart's chords, Alan Gowen's keys, and Tenemos Roads as the gateway. 1978, and still ahead of most things.",
       "quote": null
     },
     "spotify:track:18HRIcxTqwNhGhISEXZM5p": {
       "src": "ProgArchives",
-      "text": "FEATURED SCENE. Tatsuya Yoshida's volcanic Japanese zeuhl — Angherr Shisspa is maximum-prog chaos, Magma's lineage mutated through a Tokyo noise sensibility. The scene wheel's loudest stop.",
+      "text": "FEATURED SCENE. Tatsuya Yoshida's volcanic Japanese zeuhl \u2014 Angherr Shisspa is maximum-prog chaos, Magma's lineage mutated through a Tokyo noise sensibility. The scene wheel's loudest stop.",
       "quote": null
     },
     "spotify:track:3LTHdYIX4Fc5Rcj75EeAfM": {
       "src": "Bandcamp",
-      "text": "FEATURED SCENE. A one-man zeuhl act out of Hong Kong — proof the Magma lineage still has strange new branches growing in places the magazines don't patrol.",
+      "text": "FEATURED SCENE. A one-man zeuhl act out of Hong Kong \u2014 proof the Magma lineage still has strange new branches growing in places the magazines don't patrol.",
       "quote": null
     },
     "spotify:track:7mnw1JkFCDGBWmUzZlixau": {
       "src": "ProgArchives",
-      "text": "FEATURED SCENE. The other Canterbury cornerstone — 1975's The Rotters' Club, where Fitter Stoke Has A Bath turned the scene's wit into its signature. (The 30-second solo here inspired a generation of math-rockers, whatever else it did.)",
+      "text": "FEATURED SCENE. The other Canterbury cornerstone \u2014 1975's The Rotters' Club, where Fitter Stoke Has A Bath turned the scene's wit into its signature. (The 30-second solo here inspired a generation of math-rockers, whatever else it did.)",
       "quote": null
     },
     "spotify:track:3QQa9x8oFSE8Qulp3OMe8J": {
       "src": "Progspace_hub",
-      "text": "The former Pain of Salvation bassist's Humanised is a solo album in the fullest sense — The Almosts is its quiet, ringing center. Via The Progspace's release coverage.",
+      "text": "The former Pain of Salvation bassist's Humanised is a solo album in the fullest sense \u2014 The Almosts is its quiet, ringing center. Via The Progspace's release coverage.",
       "quote": null
     },
     "spotify:track:1rixabSyd5ixNZ7l0FyL9H": {
       "src": "TPM_lostinspsalms",
-      "text": "Costa Rican multi-instrumentalist Gerardo Ruiz's project — End of a Kalpa (kalpa: an aeon in Hindu cosmology). The PROG Mind stumbled on it online and stayed. So did we.",
+      "text": "Costa Rican multi-instrumentalist Gerardo Ruiz's project \u2014 End of a Kalpa (kalpa: an aeon in Hindu cosmology). The PROG Mind stumbled on it online and stayed. So did we.",
       "quote": null
     },
     "spotify:track:5OWqeP0bdNFr1Ul2hrcBPF": {
       "src": "Subway_tfo",
-      "text": "WILDCARD. Progressive hyperpop stream-of-consciousness that shouldn't work and absolutely does — The Progressive Subway: \"Style: Hyperpop, VGM, progressive rock… for fans of Knower, Danny Baranowsky, Death's Dynamic Shroud.\" The two wildcards this week are the edition's two most gleeful left turns.",
+      "text": "WILDCARD. Progressive hyperpop stream-of-consciousness that shouldn't work and absolutely does \u2014 The Progressive Subway: \"Style: Hyperpop, VGM, progressive rock\u2026 for fans of Knower, Danny Baranowsky, Death's Dynamic Shroud.\" The two wildcards this week are the edition's two most gleeful left turns.",
       "quote": null
     },
     "spotify:track:1hjH6c62KSPlqfkMp4J3VY": {
       "src": "ProgArchives",
-      "text": "FROM THE VAULT. French zeuhl-fusion, one album, 1981, then gone — Eros is its eight-minute argument for staying. Exactly the kind of record the archive lane exists to resurface.",
+      "text": "FROM THE VAULT. French zeuhl-fusion, one album, 1981, then gone \u2014 Eros is its eight-minute argument for staying. Exactly the kind of record the archive lane exists to resurface.",
       "quote": null
     },
     "spotify:track:2uoEFDUHqZV314Kx5Aw4S4": {
       "src": "ProgArchives",
-      "text": "FROM THE VAULT. 1973 Italian symphonic — Zarathustra is a concept album about Nietzsche's last man, and L'ultimo Uomo is its overture in miniature. Museo Rosenbach split right after; the record didn't.",
+      "text": "FROM THE VAULT. 1973 Italian symphonic \u2014 Zarathustra is a concept album about Nietzsche's last man, and L'ultimo Uomo is its overture in miniature. Museo Rosenbach split right after; the record didn't.",
       "quote": null
     }
   },
@@ -375,65 +375,119 @@
   "theme": {
     "name": "Zeuhl & Canterbury descendants",
     "kicker": "THE THEME THIS WEEK",
-    "origin": "Magma · Paris, 1969 — The Wilde Flowers · Canterbury, 1966",
+    "origin": "Magma \u00b7 Paris, 1969 \u2014 The Wilde Flowers \u00b7 Canterbury, 1966",
     "paras": [
-      "This edition's spotlight bands are connected by blood, not sound. Zeuhl and Canterbury are the only two prog genres defined by family trees — who played with whom — rather than by how the music sounds.",
+      "This edition's spotlight bands are connected by blood, not sound. Zeuhl and Canterbury are the only two prog genres defined by family trees \u2014 who played with whom \u2014 rather than by how the music sounds.",
       "National Health is Hatfield & The North's rhythm section starting over. Koenjihyakkei is Magma's invented language carried to Tokyo. The full lineage, member by member, is charted inside the edition."
     ],
     "deep": {
-      "intro": "The four spotlight picks — plus Dün from the vault — aren't grouped by sound at all. They're nodes on two family trees. Zeuhl and Canterbury are the only genres in progressive rock defined by descent: membership is literal, a matter of which musicians played in which band.",
+      "intro": "The four spotlight picks \u2014 plus D\u00fcn from the vault \u2014 aren't grouped by sound at all. They're nodes on two family trees, and in these two genres, family trees ARE the genre.",
       "trees": [
         {
-          "title": "The Canterbury line · England",
-          "root": "The Wilde Flowers — Canterbury, 1966 · the scene's seed",
+          "title": "The Canterbury line \u00b7 England",
+          "root": "The Wilde Flowers \u2014 Canterbury, 1966 \u00b7 the scene's seed",
           "items": [
             {
-              "name": "Soft Machine → Matching Mole",
-              "note": "first wave off the root",
-              "here": false
+              "name": "Soft Machine \u2192 Matching Mole",
+              "note": "first wave \u2014 jazz abstraction off the root",
+              "here": false,
+              "art": "https://i.scdn.co/image/ab67616d00001e024cb2142e3c01706fbd5d36fc",
+              "art_album": "Matching Mole"
             },
             {
               "name": "Caravan",
-              "note": "the other first wave; Richard Sinclair's band",
-              "here": false
+              "note": "the other first wave \u2014 pastoral, whimsical",
+              "here": false,
+              "art": "https://i.scdn.co/image/ab67616d00001e0279558ad2c9feea7986fe5a41",
+              "art_album": "In The Land Of Grey And Pink"
             },
             {
               "name": "Hatfield & The North (1975)",
-              "note": "Phil Miller · Pip Pyle · Richard Sinclair",
+              "note": "Phil Miller \u00b7 Pip Pyle \u00b7 Richard Sinclair \u2014 the scene's wit at full flower",
               "here": true
             },
             {
               "name": "National Health (1978)",
-              "note": "Miller & Pyle again, + Alan Gowen of Gilgamesh — formed out of Hatfield's split",
+              "note": "Miller & Pyle again, + Alan Gowen of Gilgamesh \u2014 formed out of Hatfield's split, the most compositionally ambitious stop on the line",
               "here": true
             }
           ],
-          "caption": "Same rhythm section, consecutive bands. A relay, not a coincidence."
+          "caption": "Same rhythm section, consecutive bands. A relay, not a coincidence.",
+          "root_art": "https://i.scdn.co/image/ab67616d0000b273ed99c2139fe9057801dbc866"
         },
         {
-          "title": "The zeuhl line · France → the world",
-          "root": "Magma — Paris, 1969 · Christian Vander invents the genre: operatic prog sung in Kobaïan (a language he made up), choir vocals over repeating bass figures",
+          "title": "The zeuhl line \u00b7 France \u2192 the world",
+          "root": "Magma \u2014 Paris, 1969 \u00b7 Christian Vander invents the genre: operatic prog sung in Koba\u00efan (a language he made up), choir vocals over repeating bass figures",
           "items": [
             {
-              "name": "Dün (France, 1981)",
-              "note": "one album of the Magma lineage, then gone",
+              "name": "D\u00fcn (France, 1981)",
+              "note": "one album of the Magma lineage \u2014 Eros, its eight-minute argument for staying \u2014 then gone",
               "here": true
             },
             {
               "name": "Koenjihyakkei (Tokyo)",
-              "note": "Tatsuya Yoshida takes the language to twice the speed",
+              "note": "Tatsuya Yoshida takes the Koba\u00efan language to twice the speed \u2014 Angherr Shisspa is the lineage's most volcanic modern branch",
               "here": true
             },
             {
               "name": "Athak (Hong Kong, now)",
-              "note": "one-man zeuhl — the newest branch",
+              "note": "one-man zeuhl \u2014 proof the tree is still growing in places the magazines don't patrol",
               "here": true
             }
           ],
-          "caption": "Zeuhl means descended from Magma's invention. That's the entire genre definition."
+          "caption": "Zeuhl means descended from Magma's invention. That's the entire genre definition.",
+          "root_art": "https://i.scdn.co/image/ab67616d00001e028eaebb1c18ec7ad2f29cf6b9"
         }
       ],
-      "outro": "The two trees knew each other — Magma and Soft Machine toured the same early-70s European circuit and traded influence. Fifty-plus years and three continents later, both lineages are still growing. That's what this edition listens for: not a sound, but a line of descent."
+      "outro": "The two trees knew each other \u2014 Magma and Soft Machine toured the same early-70s European circuit and traded influence. Fifty-plus years and three continents later, both lineages are still growing. That's what this edition listens for: not a sound, but a line of descent.",
+      "paras": [
+        "Zeuhl began when drummer Christian Vander formed Magma in Paris in 1969 with a science-fiction myth: the planet Koba\u00efa, humanity's exodus to it, and its people's language. Vander composed in that invented tongue \u2014 the genre's very name, 'zeuhl,' is a Koba\u00efan word. The music hits like opera run through a jazz rhythm section: massed choral voices chanting over relentless, repeating bass figures, equal parts Ellington, Bart\u00f3k and sheer volume. Nobody 'sounds like' zeuhl by accident; you are zeuhl by taking up Vander's language.",
+        "Canterbury started more casually \u2014 a group of teenagers in Kent called the Wilde Flowers who splintered into Soft Machine (jazz abstraction, wild improvising) and Caravan (pastoral, whimsical song-forms). When the first wave burned out, the same players regrouped: Matching Mole from Soft Machine's ashes, then Hatfield & The North, then National Health \u2014 formed when Hatfield's guitarist Phil Miller and drummer Pip Pyle joined forces with Gilgamesh's keyboardist Alan Gowen. The music got more compositionally ambitious with each relay hand-off.",
+        "The two lines crossed early \u2014 Soft Machine and Magma shared stages on the early-70s European circuit, and each bent the other. What unites them for this edition is the membership rule: in both, a band belongs because its members descended from the source. Fifty-plus years and three continents later, both trees are still sprouting."
+      ]
     }
-  }
+  },
+  "lanes": {
+    "spotify:track:3F59wItYRllfGVIkFCBmQb": "core-prog",
+    "spotify:track:2IromxtGk6yjUf3jWp9Y8E": "jazz-fusion",
+    "spotify:track:09YtNcRsr7FR2flD9nazlY": "fringe",
+    "spotify:track:70gMqrCiOHrmY8ICmCeS4J": "core-prog",
+    "spotify:track:6N7xfL2lTWRuFS2MVbAxkl": "jazz-fusion",
+    "spotify:track:2UKQtt7xMDKcrE5oGkAfYV": "fringe",
+    "spotify:track:00WnPNxk1Lmd1HqGmxIhqs": "core-prog",
+    "spotify:track:76dHl6GuPUqb2Bo3SGYTzz": "jazz-fusion",
+    "spotify:track:0PhCbeNRtuEsIMX8CYYAwv": "fringe",
+    "spotify:track:10vjuLFB9dGlq4ieIqRXdH": "core-prog",
+    "spotify:track:4H4EmkuWdkaNcdzGyA0hzf": "jazz-fusion",
+    "spotify:track:7I4AkS4aAugbtkKW6TXXSQ": "fringe",
+    "spotify:track:4CW9fj0aZMtc4652Xnr7Ha": "core-prog",
+    "spotify:track:0Lci5APIpJjwtCt8AMLlvp": "jazz-fusion",
+    "spotify:track:5z44rf6zPmfClQqfSugvXx": "fringe",
+    "spotify:track:3uIzddyotvprzsfJ8e6CwM": "core-prog",
+    "spotify:track:77Upj6QTmlbhRqesiCYgGA": "jazz-fusion",
+    "spotify:track:0nZj6UgjZ78pYJhG36zSRU": "fringe",
+    "spotify:track:01XV9RtSmLIoERz6TCbuXd": "wildcard",
+    "spotify:track:73UWmak0o1rM6SQ03Oybof": "core-prog",
+    "spotify:track:5MeRLYevGwkEKqpsQSsLxH": "jazz-fusion",
+    "spotify:track:1LgxdaKouyxqEmG1GoWWiw": "fringe",
+    "spotify:track:0xIfYcrViPCW6lVHhRU2o2": "core-prog",
+    "spotify:track:0GrPEhIDM0bdE93pfb3iI2": "jazz-fusion",
+    "spotify:track:08OsGYmEA6x1Af8WobsJQU": "fringe",
+    "spotify:track:7hnZg2to4y6xm3asHmJGzY": "core-prog",
+    "spotify:track:350t84BbIGEzTwyJZWe29A": "jazz-fusion",
+    "spotify:track:3jNesgmvKCBIiQSzFKwHLB": "fringe",
+    "spotify:track:5V4MIrVuU5HrobVKjvodfs": "core-prog",
+    "spotify:track:5iW8YrUo6qMtNQBTehpPeL": "scene",
+    "spotify:track:18HRIcxTqwNhGhISEXZM5p": "scene",
+    "spotify:track:3LTHdYIX4Fc5Rcj75EeAfM": "scene",
+    "spotify:track:7mnw1JkFCDGBWmUzZlixau": "scene",
+    "spotify:track:3QQa9x8oFSE8Qulp3OMe8J": "core-prog",
+    "spotify:track:1rixabSyd5ixNZ7l0FyL9H": "core-prog",
+    "spotify:track:5OWqeP0bdNFr1Ul2hrcBPF": "wildcard",
+    "spotify:track:1hjH6c62KSPlqfkMp4J3VY": "archive",
+    "spotify:track:2uoEFDUHqZV314Kx5Aw4S4": "archive"
+  },
+  "scene_mode": "lineage",
+  "scene_reason": "Zeuhl/Canterbury is a descent story: Magma 1969 roots through Koenjihyakkei and present-day torch-carriers; week 2 traced exactly that arc.",
+  "scene_angle": "Roots to now: the French strain and the English strain, and where each line is being carried today."
 }

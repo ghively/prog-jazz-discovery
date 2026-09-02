@@ -32,6 +32,16 @@ for d in editions:
     else: fail(f"{d.name}: tags missing {sorted(inlist - set(ed.get('tags',{})))[:3]}")
     if ed.get("theme", {}).get("paras"): good(f"{d.name}: theme essay present")
     else: fail(f"{d.name}: theme essay missing")
+    # D-4 (2026-09-02): every track must carry a non-empty lane from edition.json
+    lanes = ed.get("lanes") or {}
+    empty_lane = [t["uri"] for t in tk["tracks"] if not str(lanes.get(t["uri"], "")).strip()]
+    if not empty_lane: good(f"{d.name}: all {len(tk['tracks'])} tracks have a lane")
+    else: fail(f"{d.name}: {len(empty_lane)} tracks missing lane (D-4 regression)")
+    # scene_mode required when the edition features a scene (v3 scene modes)
+    if ed.get("scene") and ed.get("scene_mode"):
+        good(f"{d.name}: scene_mode '{ed['scene_mode']}' recorded")
+    elif ed.get("scene") and not ed.get("scene_mode"):
+        fail(f"{d.name}: scene present but scene_mode missing")
 
 front = (OUT / "index.html").read_text()
 i_mast_end = front.find("</header>")

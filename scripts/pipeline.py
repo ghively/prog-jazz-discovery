@@ -34,6 +34,22 @@ API = "https://api.spotify.com/v1"
 ACCOUNTS = "https://accounts.spotify.com/api/token"
 UA = "HermesAgent/1.0 prog-discovery-pipeline"  # Spotify 403s default-python UA on writes (found 2026-08-29)
 
+# ---- per-source caps per week (audit S-5; mirror these numbers in SKILL.md) ----
+SOURCE_CAPS = {
+    "TOTW": 8,        # loudersound Tracks Of The Week — auto-include, hard ceiling 8
+    "Progspace": 4,
+    "TPM": 4,         # The PROG Mind
+    "Subway": 3,      # The Progressive Subway
+    "ArcticDrones": 3,
+    "ProgArchives": 3,
+    "postrock": 4,    # r/postrock + A Closer Listen pool
+    "FJC": 4,         # Free Jazz Collective
+    "Bandcamp": 4,
+    "reserve": None,  # candidate-pool reserve: no cap, but never primary feed
+}
+MAX_PER_TAG = 4      # max tracks sharing one fine subgenre tag
+MIN_TRACKS = 34
+
 DEFAULT_SCENES = [
     "Japanese prog", "Zeuhl / Canterbury descendants", "Scandinavian",
     "Latin American", "Eastern European", "Israel / Middle East",
@@ -116,9 +132,14 @@ def cmd_scene():
     entry = scenes[(week - 1) % len(scenes)]
     if isinstance(entry, dict):
         scene_name, scene_short = entry["name"], entry.get("short", entry["name"])
+        mode = entry.get("mode", "living")   # legacy entries default to living
+        angle = entry.get("angle", "")
+        proposed = entry.get("proposed", False)
     else:
         scene_name = scene_short = entry
-    print(json.dumps({"week": week, "scene": scene_name, "scene_short": scene_short}))
+        mode, angle, proposed = "living", "", False
+    print(json.dumps({"week": week, "scene": scene_name, "scene_short": scene_short,
+                      "mode": mode, "angle": angle, "proposed": proposed}))
 
 
 def cmd_seeds():
@@ -168,6 +189,14 @@ def cmd_seeds():
     }, indent=1))
 
 
+def _played_artists_map(st):
+    """played_artists may be a flat list (v2) or {artist: last_week} (v3). Normalize to a map."""
+    pa = st.get("played_artists", [])
+    if isinstance(pa, dict):
+        return dict(pa)
+    return {a: None for a in pa}
+
+
 def cmd_verify(candidates_path=None):
     token = get_token()
     cpath = Path(candidates_path) if candidates_path else HOME / "candidates-week.json"
@@ -175,7 +204,12 @@ def cmd_verify(candidates_path=None):
     if isinstance(cands, dict):
         cands = cands.get("candidates", cands.get("tracks", []))
 
-    verified, failures = [], []
+    st = load_state()
+    played_tracks = set(st.get("played_tracks", []))
+    played_artists = _played_artists_map(st)
+    week = st.get("week_counter", 0) + 1
+
+    verified, failures, warnings, artist_cache = [], [], [], {}
     for c in cands:
         q = urllib.parse.urlencode({"q": f"{c['artist']} {c['track']}", "type": "track", "limit": "1"})
         try:
@@ -192,21 +226,61 @@ def cmd_verify(candidates_path=None):
         if norm(c["artist"]) not in {norm(n) for n in names}:
             failures.append({**c, "reason": f"artist mismatch (found: {names[0]} — {t['name']})"})
             continue
+        uri = t["uri"]
+        if uri in played_tracks:
+            failures.append({**c, "reason": "REPEAT: track already published (played_tracks)"})
+            continue
+        if c["artist"] in played_artists:
+            last = played_artists[c["artist"]]
+            when = f"week {last}" if last else "an earlier week"
+            warnings.append(f"{c['artist']} appeared in {when} (8-week cooldown rule)")
+        # obscurity data: primary artist followers + popularity (one call per NEW artist)
+        followers = popularity = None
+        primary_id = (t.get("artists") or [{}])[0].get("id")
+        if primary_id:
+            if primary_id in artist_cache:
+                followers, popularity = artist_cache[primary_id]
+            else:
+                try:
+                    _, art = api_get(f"{API}/artists/{primary_id}", token)
+                    followers, popularity = art.get("followers", {}).get("total"), art.get("popularity")
+                except Exception:
+                    pass
+                artist_cache[primary_id] = (followers, popularity)
         verified.append({
             "artist": c["artist"], "track": t["name"], "album": t.get("album", {}).get("name", ""),
-            "uri": t["uri"], "lane": c.get("lane", "?"), "source": c.get("source", "?"),
+            "uri": uri, "lane": c.get("lane", "?"), "source": c.get("source", "?"),
+            "tag": c.get("tag") or c.get("subgenre") or "",
+            "followers": followers, "popularity": popularity,
         })
         time.sleep(0.15)  # gentle on rate limits
 
-    st = load_state()
-    out = {"week": st.get("week_counter", 0) + 1, "tracks": verified}
+    # per-source and per-tag cap counts over VERIFIED candidates (audit S-5/S-7)
+    src_counts, tag_counts = {}, {}
+    for v in verified:
+        src_counts[v["source"]] = src_counts.get(v["source"], 0) + 1
+        if v.get("tag"):
+            tag_counts[v["tag"]] = tag_counts.get(v["tag"], 0) + 1
+    cap_violations = []
+    for s, n in sorted(src_counts.items()):
+        cap = SOURCE_CAPS.get(s)
+        if cap is not None and n > cap:
+            cap_violations.append(f"source {s}: {n} verified > cap {cap}")
+    tag_violations = [f"tag {t}: {n} > {MAX_PER_TAG}" for t, n in sorted(tag_counts.items()) if n > MAX_PER_TAG]
+
+    out = {"week": week, "tracks": verified}
     (HOME / "draft.json").write_text(json.dumps(out, indent=1))
-    print(json.dumps({"verified": len(verified), "failed": failures}, indent=1))
+    print(json.dumps({"verified": len(verified), "failed": len(failures), "failures": failures,
+                      "warnings": warnings, "source_counts": src_counts, "tag_counts": tag_counts,
+                      "cap_violations": cap_violations + tag_violations}, indent=1))
     if failures:
         print("ACTION: swap failed candidates in candidates-week.json and re-run verify.")
+    if cap_violations or tag_violations:
+        print("ACTION: trim over-cap sources/tags before sequencing; publish will refuse.")
 
 
-def cmd_publish(week=None, date=None, min_tracks=34):
+def cmd_publish(week=None, date=None, min_tracks=None):
+    min_tracks = min_tracks or MIN_TRACKS
     token = get_token()
     st = load_state()
     draft = json.loads((HOME / "draft.json").read_text())
@@ -216,11 +290,35 @@ def cmd_publish(week=None, date=None, min_tracks=34):
               "Harvest more candidates, verify again.")
         sys.exit(2)
 
+    # per-source / per-tag caps enforced at publish (audit S-5/S-7)
+    src_counts, tag_counts = {}, {}
+    for t in tracks:
+        src_counts[t.get("source", "?")] = src_counts.get(t.get("source", "?"), 0) + 1
+        tg = t.get("tag") or ""
+        if tg:
+            tag_counts[tg] = tag_counts.get(tg, 0) + 1
+    violations = [f"source {s}: {n} > cap {SOURCE_CAPS[s]}" for s, n in sorted(src_counts.items())
+                  if SOURCE_CAPS.get(s) is not None and n > SOURCE_CAPS[s]]
+    violations += [f"tag {t}: {n} > {MAX_PER_TAG}" for t, n in sorted(tag_counts.items()) if n > MAX_PER_TAG]
+    if violations:
+        print("REFUSED: per-source/per-tag cap violations (state untouched):")
+        for v in violations:
+            print("  -", v)
+        print(json.dumps({"source_counts": src_counts, "tag_counts": tag_counts}, indent=1))
+        sys.exit(4)
+
     week = week or draft.get("week") or st.get("week_counter", 0) + 1
     date = date or datetime.now().strftime("%Y-%m-%d")
     scenes = st.get("scene_rotation", {}).get("scenes", DEFAULT_SCENES)
     entry = scenes[(week - 1) % len(scenes)]
-    scene_short = entry.get("short", entry["name"]) if isinstance(entry, dict) else entry
+    if isinstance(entry, dict):
+        scene_short = entry.get("short", entry["name"])
+        scene_mode = entry.get("mode", "living")
+    else:
+        scene_short, scene_mode = entry, "living"
+    # agent may override the wheel's mode via draft.json scene_mode/scene_reason
+    scene_mode = draft.get("scene_mode") or scene_mode
+    scene_reason = draft.get("scene_reason", "")
     name = f"Prog & Jazz Discovery — {date} · {scene_short}"
 
     _, pl = api_send(f"{API}/me/playlists", token,
@@ -245,13 +343,16 @@ def cmd_publish(week=None, date=None, min_tracks=34):
         st["week_counter"] = week
         st.setdefault("playlists", []).append(
             {"week": week, "date": date, "url": f"https://open.spotify.com/playlist/{pid}",
-             "count": total, "lanes": lanes})
-        played_a = set(st.setdefault("played_artists", []))
-        played_t = set(st.setdefault("played_tracks", []))
+             "count": total, "lanes": lanes,
+             "scene": scene_short, "scene_mode": scene_mode, "scene_reason": scene_reason})
+        # played_artists v3: {artist: last_week} so the 8-week cooldown is computable
+        pa = st.get("played_artists", [])
+        played_a = dict(pa) if isinstance(pa, dict) else {a: None for a in pa}
+        played_t = set(st.get("played_tracks", []))
         for t in tracks:
-            played_a.add(t["artist"])
+            played_a[t["artist"]] = week
             played_t.add(t["uri"])
-        st["played_artists"] = sorted(played_a)
+        st["played_artists"] = dict(sorted(played_a.items()))
         st["played_tracks"] = sorted(played_t)
         (HOME / "state.json").write_text(json.dumps(st, indent=2))
         # attribution log for source-weight auditing
@@ -263,7 +364,8 @@ def cmd_publish(week=None, date=None, min_tracks=34):
     print(json.dumps({
         "url": f"https://open.spotify.com/playlist/{pid}", "name": name,
         "expected": len(uris), "actual_total": total,
-        "lanes": lanes,
+        "lanes": lanes, "source_counts": src_counts, "tag_counts": tag_counts,
+        "scene": scene_short, "scene_mode": scene_mode,
         "ok": ok,
         "state_updated": ok,
     }, indent=1))

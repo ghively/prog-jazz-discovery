@@ -4,8 +4,8 @@
   "scene": null,
   "playlist_url": "https://open.spotify.com/playlist/5vFxF0jkcVv1hJTd4WsIu0",
   "playlist_id": "5vFxF0jkcVv1hJTd4WsIu0",
-  "playlist_title": "Prog & Jazz Discovery — 2026-08-29",
-  "editor_note": "Where it started: the first edition, twenty tracks, one rule — nothing you'd find on an algorithm's front page. Everything here was pulled from the week's writing around progressive rock and jazz-fusion, with the big names screened out. A proof of concept that grew legs.",
+  "playlist_title": "Prog & Jazz Discovery \u2014 2026-08-29",
+  "editor_note": "Where it started: the first edition, twenty tracks, one rule \u2014 nothing you'd find on an algorithm's front page. Everything here was pulled from the week's writing around progressive rock and jazz-fusion, with the big names screened out. A proof of concept that grew legs.",
   "tags": {
     "spotify:track:52WF3uli6Aj23LZJH6LqNx": "psych-prog",
     "spotify:track:0QWCGS1sD7StFSO36y4tiB": "modern prog",
@@ -30,7 +30,7 @@
   },
   "sources": {
     "TOTW": {
-      "name": "Prog — Tracks Of The Week",
+      "name": "Prog \u2014 Tracks Of The Week",
       "outlet": "Louder (loudersound.com/prog)",
       "author": "Jerry Ewing",
       "url": "https://www.loudersound.com/music/music-videos/great-new-prog-tracks-from-chimpan-a-polyphia-dikajee-and-more-in-progs-brand-new-tracks-of-the-week",
@@ -38,7 +38,7 @@
     },
     "W1_pool": {
       "name": "The Week One harvest",
-      "outlet": "TPM Top 40 · Progspace · Arctic Drones · AOTY · FB jazz roundups · Progarchy · progrockjournal",
+      "outlet": "TPM Top 40 \u00b7 Progspace \u00b7 Arctic Drones \u00b7 AOTY \u00b7 FB jazz roundups \u00b7 Progarchy \u00b7 progrockjournal",
       "url": null,
       "note": "The first candidate sweep: The PROG Mind's Top 40, Progspace release week 22, Arctic Drones' fusion coverage, year-end lists, and the jazz roundups."
     }
@@ -46,43 +46,43 @@
   "blurbs": {
     "spotify:track:52WF3uli6Aj23LZJH6LqNx": {
       "src": "W1_pool",
-      "text": "The Knifeworld/Cardiacs lineage at its most buoyant — Torabi's songcraft bends time signatures into pop shapes without ever losing the grin. A solo single that earned its opening slot."
+      "text": "The Knifeworld/Cardiacs lineage at its most buoyant \u2014 Torabi's songcraft bends time signatures into pop shapes without ever losing the grin. A solo single that earned its opening slot."
     },
     "spotify:track:0QWCGS1sD7StFSO36y4tiB": {
       "src": "W1_pool",
-      "text": "From the first harvest's deeper cuts — modern prog with a melodic heart and no interest in showing off."
+      "text": "From the first harvest's deeper cuts \u2014 modern prog with a melodic heart and no interest in showing off."
     },
     "spotify:track:59nNfTiRZVMJyU3efTJID2": {
       "src": "W1_pool",
-      "text": "Chicago's doom-psych heavyweights. Aerial Birth rides a riff the size of a weather system — the volume is the point, and the point is well taken."
+      "text": "Chicago's doom-psych heavyweights. Aerial Birth rides a riff the size of a weather system \u2014 the volume is the point, and the point is well taken."
     },
     "spotify:track:4EfKHedelZj0Y6Mu5gFTkl": {
       "src": "W1_pool",
-      "text": "Quiet-loud dynamics done with actual feeling — Home builds its crescendo the old way, by earning it."
+      "text": "Quiet-loud dynamics done with actual feeling \u2014 Home builds its crescendo the old way, by earning it."
     },
     "spotify:track:2Y0kBcHFWTPcZPTfFY4mR8": {
       "src": "TOTW",
-      "text": "The French duo's single from Prog's Tracks Of The Week — angular, theatrical, unmistakably from the French prog tradition of taking odd ideas seriously."
+      "text": "The French duo's single from Prog's Tracks Of The Week \u2014 angular, theatrical, unmistakably from the French prog tradition of taking odd ideas seriously."
     },
     "spotify:track:3hl2iE2PJCtLcuGCzw2ZHS": {
       "src": "W1_pool",
-      "text": "Monumental in name and nature — modern prog with metal weight and architectural patience."
+      "text": "Monumental in name and nature \u2014 modern prog with metal weight and architectural patience."
     },
     "spotify:track:46pi0Hk8MwLED1NWz1OBbI": {
       "src": "W1_pool",
-      "text": "South American prog with real voltage — Abismo (\"abyss\") does exactly what the title promises."
+      "text": "South American prog with real voltage \u2014 Abismo (\"abyss\") does exactly what the title promises."
     },
     "spotify:track:4WlT2CKBDxLl0RL91Tz7f5": {
       "src": "W1_pool",
-      "text": "Piano-led fusion that whirls — the title is the honest review."
+      "text": "Piano-led fusion that whirls \u2014 the title is the honest review."
     },
     "spotify:track:3G7vtEzg5JvWdvzR0UxBxr": {
       "src": "W1_pool",
-      "text": "One of the harvest's left-field picks — compact, hooky, and off-kilter in the right proportions."
+      "text": "One of the harvest's left-field picks \u2014 compact, hooky, and off-kilter in the right proportions."
     },
     "spotify:track:2YF72dr6r89o9bS0x3Mabf": {
       "src": "W1_pool",
-      "text": "Drummer-led prog with aerial dynamics — OVERWHELMED wears its capital letters honestly."
+      "text": "Drummer-led prog with aerial dynamics \u2014 OVERWHELMED wears its capital letters honestly."
     },
     "spotify:track:7f8vi4dSKX2kD5z6H0cfkA": {
       "src": "W1_pool",
@@ -90,48 +90,71 @@
     },
     "spotify:track:0cEayj9GlWT2awWziRlOuL": {
       "src": "W1_pool",
-      "text": "The Neal Morse-adjacent outfit operating at full melodic strength — dream-logic prog with immaculate harmonies."
+      "text": "The Neal Morse-adjacent outfit operating at full melodic strength \u2014 dream-logic prog with immaculate harmonies."
     },
     "spotify:track:3HtMFY0vLnXjj7eXIvPEoA": {
       "src": "W1_pool",
-      "text": "Finnish prog metal with an unusually light touch for the genre — Illuminate glows rather than bludgeons."
+      "text": "Finnish prog metal with an unusually light touch for the genre \u2014 Illuminate glows rather than bludgeons."
     },
     "spotify:track:1spN7elqO8ae86I2snOAiR": {
       "src": "W1_pool",
-      "text": "A pep talk with guitars — modern prog that takes its own advice."
+      "text": "A pep talk with guitars \u2014 modern prog that takes its own advice."
     },
     "spotify:track:34wkpfakN81SShZCdbtdWN": {
       "src": "W1_pool",
-      "text": "Brazilian jazz-fusion with a songwriter's wit — the escalator metaphor extends further than you'd think."
+      "text": "Brazilian jazz-fusion with a songwriter's wit \u2014 the escalator metaphor extends further than you'd think."
     },
     "spotify:track:1K9sehA1QUYO5RfbGIRTCP": {
       "src": "W1_pool",
-      "text": "The Armenian pianist-composer's foliar arpeggios — a prelude that sounds like a whole orchestra tuning to a folk memory."
+      "text": "The Armenian pianist-composer's foliar arpeggios \u2014 a prelude that sounds like a whole orchestra tuning to a folk memory."
     },
     "spotify:track:0aM1mCxoiwvhN5828gvLNV": {
       "src": "W1_pool",
-      "text": "Guitar-forward fusion with a romantic streak — Something To Believe In makes the case without words."
+      "text": "Guitar-forward fusion with a romantic streak \u2014 Something To Believe In makes the case without words."
     },
     "spotify:track:2UqXRWH0AO8l2ecr4C6cHS": {
       "src": "W1_pool",
-      "text": "A jazz-fusion two-hander with humor in the pocket — Matti's Mojo has the swing the name implies."
+      "text": "A jazz-fusion two-hander with humor in the pocket \u2014 Matti's Mojo has the swing the name implies."
     },
     "spotify:track:2NCKMGcBAK8C7QSA6C4sAQ": {
       "src": "W1_pool",
-      "text": "The Fugazi rhythm section's instrumental outfit — jazz-punk with DC pedigree and zero wasted notes."
+      "text": "The Fugazi rhythm section's instrumental outfit \u2014 jazz-punk with DC pedigree and zero wasted notes."
     },
     "spotify:track:2KJXQeZ2AKcaQiJjtqWaVJ": {
       "src": "W1_pool",
-      "text": "Cello-led ambient jazz — To March Is To Love drifts with purpose."
+      "text": "Cello-led ambient jazz \u2014 To March Is To Love drifts with purpose."
     }
   },
   "theme": {
     "name": "The Ground Rules",
     "kicker": "THE THEME THIS WEEK",
-    "origin": "The founding harvest · 2026-08-29",
+    "origin": "The founding harvest \u00b7 2026-08-29",
     "paras": [
       "Edition one established the constraints the whole log runs on: nothing an algorithm would hand you. Every artist sits under 500k monthly listeners, and every track came out of the week's editorial writing.",
-      "Twenty tracks, twenty artists, one rule of thumb: if a recommendation engine already knows you want it, it doesn't make the log. Obscurity isn't the goal — discovery is. Obscurity is just the gate."
+      "Twenty tracks, twenty artists, one rule of thumb: if a recommendation engine already knows you want it, it doesn't make the log. Obscurity isn't the goal \u2014 discovery is. Obscurity is just the gate."
     ]
-  }
+  },
+  "lanes": {
+    "spotify:track:52WF3uli6Aj23LZJH6LqNx": "unlaned",
+    "spotify:track:0QWCGS1sD7StFSO36y4tiB": "unlaned",
+    "spotify:track:59nNfTiRZVMJyU3efTJID2": "unlaned",
+    "spotify:track:4EfKHedelZj0Y6Mu5gFTkl": "unlaned",
+    "spotify:track:2Y0kBcHFWTPcZPTfFY4mR8": "unlaned",
+    "spotify:track:3hl2iE2PJCtLcuGCzw2ZHS": "unlaned",
+    "spotify:track:46pi0Hk8MwLED1NWz1OBbI": "unlaned",
+    "spotify:track:4WlT2CKBDxLl0RL91Tz7f5": "unlaned",
+    "spotify:track:3G7vtEzg5JvWdvzR0UxBxr": "unlaned",
+    "spotify:track:2YF72dr6r89o9bS0x3Mabf": "unlaned",
+    "spotify:track:7f8vi4dSKX2kD5z6H0cfkA": "unlaned",
+    "spotify:track:0cEayj9GlWT2awWziRlOuL": "unlaned",
+    "spotify:track:3HtMFY0vLnXjj7eXIvPEoA": "unlaned",
+    "spotify:track:1spN7elqO8ae86I2snOAiR": "unlaned",
+    "spotify:track:34wkpfakN81SShZCdbtdWN": "unlaned",
+    "spotify:track:1K9sehA1QUYO5RfbGIRTCP": "unlaned",
+    "spotify:track:0aM1mCxoiwvhN5828gvLNV": "unlaned",
+    "spotify:track:2UqXRWH0AO8l2ecr4C6cHS": "unlaned",
+    "spotify:track:2NCKMGcBAK8C7QSA6C4sAQ": "unlaned",
+    "spotify:track:2KJXQeZ2AKcaQiJjtqWaVJ": "unlaned"
+  },
+  "lanes_note": "Week 1 predates the lane architecture (v2, 2026-08-29). Tracks are marked 'unlaned' deliberately: no scene/wildcard lanes existed; do not infer any."
 }

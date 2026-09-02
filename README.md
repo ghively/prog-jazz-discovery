@@ -12,28 +12,40 @@ Genre magazines (Prog, in this case) are the traditional discovery engine for ne
 
 ## What's in the box
 
-| File                   | Purpose                                                                                                                                                   |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SKILL.md`             | The skill itself — drop into `~/.hermes/skills/media/` (or your agent's skill dir)                                                                        |
-| `scripts/pipeline.py`  | Does ALL Spotify mechanics: scene rotation, batched track verification, atomic playlist publish, self-test. The agent never loops Spotify searches itself |
-| `templates/state.json` | Clean v2 starting state (scene wheel with short names, exclusion list) — copy to `~/.hermes/prog-discovery/state.json`                                    |
-| `DESIGN.md`            | The why: Week-1 postmortem, lane rationale, decisions and their reasons                                                                                   |
-| `README.md`            | This file                                                                                                                                                 |
+| File                   | Purpose                                                                                                                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SKILL.md`             | The skill itself — drop into `~/.hermes/skills/media/` (or your agent's skill dir)                                                                                                       |
+| `scripts/pipeline.py`  | Does ALL Spotify mechanics: scene rotation (with modes), batched track verification, rule enforcement, atomic playlist publish, self-test. The agent never loops Spotify searches itself |
+| `site/build_site.py`   | The "Now Spinning" static-site generator — one vinyl-aesthetic page per edition, a front page, and an Explore index. Deployed at music.hively.dev                                        |
+| `site/qa.py`           | QA gate for the build — exit 0 = safe to deploy. Accepts `--data`/`--out` overrides for testing against `site/examples/`                                                                 |
+| `site/examples/`       | Real edition data (`edition.json` + `tracks.json` per date) so the generator can be exercised without the live workspace                                                                 |
+| `templates/state.json` | Clean v3 starting state (scene wheel with modes + angles, exclusion list) — copy to `~/.hermes/prog-discovery/state.json`                                                                |
+| `DESIGN.md`            | The why: Week-1 postmortem, lane rationale, decisions and their reasons                                                                                                                  |
+| `README.md`            | This file                                                                                                                                                                                |
 
-## How selection works (v2 lane architecture)
+## The Monday flow (all four phases)
+
+1. **Playlist** — `pipeline.py scene` (prints the week's scene + its **mode**), harvest per the mode, `verify` (rejects repeats, warns on cooldown artists, fetches followers/popularity, counts caps), `publish` (refuses on cap violations; records scene/scene_mode/scene_reason).
+2. **Research** — pin the source article URL per track; scene research follows the mode (genealogy / who's active now / timeline / sound markers); HEAD-check artist links.
+3. **Site edition** — write `site/data/<date>/{tracks,edition}.json` (edition carries `lanes` per URI, `scene_mode`, blurbs, tags, theme), then `build_site.py` + `qa.py`; deploy **only on qa exit 0** with `rsync -a --delete out/ /var/www/music/`.
+4. **Deliver** — playlist URL, counts, scene + mode, blurbs, edition URL.
+
+## How selection works (v3: lanes + scene modes)
 
 ~38 tracks across six lanes with enforced slot quotas — the weights ARE the quotas:
 
-| Lane        | Slots | What lives here                                                                                  |
-| ----------- | ----- | ------------------------------------------------------------------------------------------------ |
-| core-prog   | 12    | Symphonic, prog-metal, avant — the magazine's heart                                              |
-| jazz-fusion | 9     | Fusion, jazztronica, Canterbury-adjacent                                                         |
-| fringe      | 9     | Psych, post-rock, kraut-descended, experimental — _adjacent_ to prog/jazz, not inside either box |
-| scene       | 4     | Rotating featured geography (Japan → Zeuhl & Canterbury → Scandinavia → …)                       |
-| archive     | 2     | Pre-2015 obscure bands you likely missed                                                         |
-| wildcard    | 2     | Editor's two most exciting finds of the week, from any source                                    |
+| Lane        | Slots | What lives here                                                                                                                                         |
+| ----------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| core-prog   | 12    | Symphonic, prog-metal, avant — the magazine's heart                                                                                                     |
+| jazz-fusion | 9     | Fusion, jazztronica, Canterbury-adjacent                                                                                                                |
+| fringe      | 9     | Psych, post-rock, kraut-descended, experimental — _adjacent_ to prog/jazz, not inside either box                                                        |
+| scene       | 4     | Rotating featured scene — each wheel entry carries a **mode** (lineage / living / moment / microgenre) that shapes the harvest and the site's Deep Dive |
+| archive     | 2     | Pre-2015 obscure bands you likely missed                                                                                                                |
+| wildcard    | 2     | Editor's two most exciting finds of the week, from any source                                                                                           |
 
-Cross-cutting rules: max 4 tracks per subgenre tag, no artist repeat within 8 weeks, tracks never repeat, obscurity gate (skip >500k monthly listeners; established legends never eligible). Ten sources feed the lanes with per-source caps so no single feed can dominate — the Week-1 postmortem found one candidate pool had quietly supplied ~70% of a playlist (details in DESIGN.md).
+Cross-cutting rules (the first three are **enforced by pipeline.py**, not just written down): tracks never repeat (verify rejects), no artist within 8 weeks (verify warns, publish records `{artist: last_week}`), max 4 tracks per fine tag (publish refuses, exit 4), per-source caps from the `SOURCE_CAPS` dict (publish refuses). Obscurity gate: skip >500k followers; `verify` prints each artist's followers + popularity so the gate is applied to data. Ten sources feed the lanes with per-source caps so no single feed can dominate — the Week-1 postmortem found one candidate pool had quietly supplied ~70% of a playlist (details in DESIGN.md).
+
+**Scene modes (v3):** each wheel entry carries a mode and a one-line angle. `lineage` scenes (Zeuhl & Canterbury, Japanese prog, RIO) are history lessons — picks span the decades, archive lane reaches elsewhere. `living` scenes (Scandinavia, Latin America, Aus/NZ…) are about what that scene is pressing _now_ — one root allowed, ProgArchives used only to find active bands. `moment` (a label, a city-and-year) and `microgenre` (jazztronica, dark jazz, math-rock, kraut revival…) pick whatever defines the story, any age. The mode also shapes the site's Deep Dive panel (family tree / who's-making-this-now / timeline / what-defines-the-sound), and the agent may argue a different mode for a week with a recorded reason. No age ratios or old/new quotas — the mode does the work.
 
 **Playlist title format:** `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>` — dated, scene visible, no week numbers (the counter lives in state + the playlist description).
 

@@ -755,17 +755,15 @@ def load_all():
             continue
         ed = json.loads((d / "edition.json").read_text())
         tk = json.loads((d / "tracks.json").read_text())
-        lanes = {}
-        try:
-            for t in json.loads((Path.home() / ".hermes/prog-discovery/draft.json").read_text()).get("tracks", []):
-                lanes[t["uri"]] = t.get("lane", "")
-        except Exception:
-            pass
+        # D-4 fix (2026-09-02): lanes live IN the edition, never in the live
+        # draft.json (which holds only the current week and would corrupt every
+        # older edition on rebuild).
+        lanes = dict(ed.get("lanes") or {})
         tracks = []
         for t in tk["tracks"]:
             t2 = dict(t)
             t2["tag"] = ed.get("tags", {}).get(t["uri"]) or "unclassified"
-            t2["lane"] = lanes.get(t["uri"], "")
+            t2["lane"] = lanes.get(t["uri"]) or t.get("lane") or "unlaned"
             tracks.append(t2)
         editions.append({"dir": d.name, "ed": ed, "tk": tk, "tracks": tracks})
     return editions, artists
@@ -804,8 +802,15 @@ def build_edition(e, artists):
   <ul class="tree-items">{"".join(items)}</ul>
   <div class="tree-cap hand">{esc(t.get("caption", ""))}</div>
 </div>''')
-        deep_block = f'''<section class="deepdive">
-  <h2>THE DEEP DIVE — {esc(theme.get("name", "").upper())}</h2>
+        mode = ed.get("scene_mode") or "lineage"  # legacy editions render as before
+        mode_head = {
+            "lineage":    "THE DEEP DIVE",
+            "living":     "WHO IS MAKING THIS NOW",
+            "moment":     "THE MOMENT",
+            "microgenre": "WHAT DEFINES THE SOUND",
+        }.get(mode, "THE DEEP DIVE")
+        deep_block = f'''<section class="deepdive" data-scene-mode="{esc(mode)}">
+  <h2>{mode_head} — {esc(theme.get("name", "").upper())}</h2>
   <p class="lead">{esc(deep.get("intro", ""))}</p>
   {paras}
   <div class="trees">{"".join(trees)}</div>
