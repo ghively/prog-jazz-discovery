@@ -377,6 +377,12 @@ blockquote.press{
 }
 .tree-title{font-family:'Alfa Slab One',serif; font-weight:400; color:#f2e7cf;
   font-size:1.08rem; margin-bottom:.55rem}
+.tree-root-row{display:flex; gap:.7rem; align-items:flex-start;
+  border-bottom:1px solid #3a2a1a; padding-bottom:.6rem; margin-bottom:.6rem}
+.tree-root-row img{width:44px; height:44px; border-radius:2px; object-fit:cover; flex:0 0 auto;
+  transform:rotate(1.5deg); box-shadow:0 2px 5px rgba(0,0,0,.5); margin-top:.05rem;
+  border:1px solid rgba(255,240,200,.2)}
+.tree-root-row .node-blank{margin-top:.05rem}
 .tree-root{
   font-size:.66rem; color:#f5d67b; letter-spacing:.04em; line-height:1.7;
   border-bottom:1px solid #3a2a1a; padding-bottom:.6rem; margin-bottom:.6rem;
@@ -783,15 +789,18 @@ def build_edition(e, artists):
         trees = []
         for t in deep.get("trees", []):
             items = []
+            root_art = t.get("root_art")
+            root_img = (f'<img loading="lazy" src="{esc(root_art)}" alt="">' if root_art
+                        else '<span class="node-blank"></span>')
             for it in t.get("items", []):
                 mark = '<span class="here-mark">◆ THIS EDITION</span>' if it.get("here") else ""
-                art = art_of.get(it["name"].split(" (")[0].split(" →")[0].strip())
+                art = it.get("art") or art_of.get(it["name"].split(" (")[0].split(" →")[0].strip())
                 img = (f'<img loading="lazy" src="{esc(art)}" alt="">' if art else
                        '<span class="node-blank"></span>')
                 items.append(f'''<li>{img}<span class="node"><b>{esc(it["name"])}</b> — {esc(it["note"])}{mark}</span></li>''')
             trees.append(f'''<div class="tree">
   <div class="tree-title">{esc(t["title"])}</div>
-  <div class="tree-root mono">{esc(t["root"])}</div>
+  <div class="tree-root-row">{root_img}<div class="tree-root mono">{esc(t["root"])}</div></div>
   <ul class="tree-items">{"".join(items)}</ul>
   <div class="tree-cap hand">{esc(t.get("caption", ""))}</div>
 </div>''')
@@ -816,7 +825,6 @@ def build_edition(e, artists):
     <span class="ednote">{esc(ed["editor_note"].split(". ")[0])}. — ed.</span>
   </div>
 </div>''']
-    parts.append(deep_block)
     modals = []
     i = 1
     spotlight_uris = set()
@@ -832,6 +840,7 @@ def build_edition(e, artists):
 </section>''')
         for tr in sc:
             modals.append(modal_html(tr, ed, tr["tag"], i, False, date, artists.get(artist_name(tr)))); i += 1
+    parts.append(deep_block)  # deep dive AFTER the spotlight
     for key in sorted(shelf_map, key=lambda k: order.get(k, 9)):
         items = [t for t in shelf_map[key] if t["uri"] not in spotlight_uris]
         label = SHELF_LABEL[key]

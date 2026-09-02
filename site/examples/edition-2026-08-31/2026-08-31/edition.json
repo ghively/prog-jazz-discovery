@@ -390,12 +390,16 @@
             {
               "name": "Soft Machine → Matching Mole",
               "note": "first wave — jazz abstraction off the root",
-              "here": false
+              "here": false,
+              "art": "https://i.scdn.co/image/ab67616d00001e024cb2142e3c01706fbd5d36fc",
+              "art_album": "Matching Mole"
             },
             {
               "name": "Caravan",
               "note": "the other first wave — pastoral, whimsical",
-              "here": false
+              "here": false,
+              "art": "https://i.scdn.co/image/ab67616d00001e0279558ad2c9feea7986fe5a41",
+              "art_album": "In The Land Of Grey And Pink"
             },
             {
               "name": "Hatfield & The North (1975)",
@@ -408,7 +412,8 @@
               "here": true
             }
           ],
-          "caption": "Same rhythm section, consecutive bands. A relay, not a coincidence."
+          "caption": "Same rhythm section, consecutive bands. A relay, not a coincidence.",
+          "root_art": "https://i.scdn.co/image/ab67616d0000b273ed99c2139fe9057801dbc866"
         },
         {
           "title": "The zeuhl line · France → the world",
@@ -430,7 +435,8 @@
               "here": true
             }
           ],
-          "caption": "Zeuhl means descended from Magma's invention. That's the entire genre definition."
+          "caption": "Zeuhl means descended from Magma's invention. That's the entire genre definition.",
+          "root_art": "https://i.scdn.co/image/ab67616d00001e028eaebb1c18ec7ad2f29cf6b9"
         }
       ],
       "outro": "The two trees knew each other — Magma and Soft Machine toured the same early-70s European circuit and traded influence. Fifty-plus years and three continents later, both lineages are still growing. That's what this edition listens for: not a sound, but a line of descent.",
