@@ -1,0 +1,299 @@
+{
+ "name": "Prog & Jazz Discovery — 2026-08-29",
+ "description": "Week 1 (pre-scene-wheel edition) · 20 tracks. Editorial discovery — core prog &#x2F; jazz-fusion &#x2F; fringe lanes.",
+ "images": [
+  {
+   "height": 640,
+   "url": "https://mosaic.scdn.co/640/ab67616d00001e026c672859abaf4d0e0d7645ecab67616d00001e02706241d12ba039111a331132ab67616d00001e029cd400fa14c2670edcd44630ab67616d00001e02b49c8aa9ee546dd786fc35f4",
+   "width": 640
+  },
+  {
+   "height": 300,
+   "url": "https://mosaic.scdn.co/300/ab67616d00001e026c672859abaf4d0e0d7645ecab67616d00001e02706241d12ba039111a331132ab67616d00001e029cd400fa14c2670edcd44630ab67616d00001e02b49c8aa9ee546dd786fc35f4",
+   "width": 300
+  },
+  {
+   "height": 60,
+   "url": "https://mosaic.scdn.co/60/ab67616d00001e026c672859abaf4d0e0d7645ecab67616d00001e02706241d12ba039111a331132ab67616d00001e029cd400fa14c2670edcd44630ab67616d00001e02b49c8aa9ee546dd786fc35f4",
+   "width": 60
+  }
+ ],
+ "total": 20,
+ "tracks": [
+  {
+   "name": "Water Into Wine",
+   "uri": "spotify:track:52WF3uli6Aj23LZJH6LqNx",
+   "duration_ms": 251568,
+   "artists": [
+    "Kavus Torabi"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/18EAWcuzknkoGJSH6xjX5j",
+   "album": "Water Into Wine",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b2736c672859abaf4d0e0d7645ec",
+   "release_date": "2026-07-31",
+   "url": "https://open.spotify.com/track/52WF3uli6Aj23LZJH6LqNx"
+  },
+  {
+   "name": "Optimistic",
+   "uri": "spotify:track:0QWCGS1sD7StFSO36y4tiB",
+   "duration_ms": 329515,
+   "artists": [
+    "Source"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/5zEuzw6dwKcnNtXahckDXi",
+   "album": "Optimistic",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273706241d12ba039111a331132",
+   "release_date": "2026-06-24",
+   "url": "https://open.spotify.com/track/0QWCGS1sD7StFSO36y4tiB"
+  },
+  {
+   "name": "Aerial Birth",
+   "uri": "spotify:track:59nNfTiRZVMJyU3efTJID2",
+   "duration_ms": 310000,
+   "artists": [
+    "REZN"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/3pDqLo5LnCyCBxhKZygkfK",
+   "album": "Cycles in the Infinite Dream",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273b49c8aa9ee546dd786fc35f4",
+   "release_date": "2026-07-24",
+   "url": "https://open.spotify.com/track/59nNfTiRZVMJyU3efTJID2"
+  },
+  {
+   "name": "Home",
+   "uri": "spotify:track:4EfKHedelZj0Y6Mu5gFTkl",
+   "duration_ms": 289696,
+   "artists": [
+    "Changing Places in the Fire"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/7xTiMItgF7TR0hiehGsJxe",
+   "album": "Changing Places In The Fire",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b2739cd400fa14c2670edcd44630",
+   "release_date": "2026-07-24",
+   "url": "https://open.spotify.com/track/4EfKHedelZj0Y6Mu5gFTkl"
+  },
+  {
+   "name": "Gunpowder",
+   "uri": "spotify:track:2Y0kBcHFWTPcZPTfFY4mR8",
+   "duration_ms": 469413,
+   "artists": [
+    "Dikajee",
+    "Varijashree Venugopal"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/1o0xgUni72ysIBTMecD7uw",
+   "album": "Gunpowder",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b27330b4a97cbc0614bb5fe39307",
+   "release_date": "2026-07-30",
+   "url": "https://open.spotify.com/track/2Y0kBcHFWTPcZPTfFY4mR8"
+  },
+  {
+   "name": "Monuments",
+   "uri": "spotify:track:3hl2iE2PJCtLcuGCzw2ZHS",
+   "duration_ms": 237334,
+   "artists": [
+    "SUBMASQ"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/1dac0ZkUJGn8KaFl9jxHH8",
+   "album": "Monuments",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b27314272b87b822f47ccff81543",
+   "release_date": "2026-07-10",
+   "url": "https://open.spotify.com/track/3hl2iE2PJCtLcuGCzw2ZHS"
+  },
+  {
+   "name": "Abismo",
+   "uri": "spotify:track:46pi0Hk8MwLED1NWz1OBbI",
+   "duration_ms": 330400,
+   "artists": [
+    "Visagem"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/1VWZH96tEhuUPuthWmtS9J",
+   "album": "Abismo",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273b3b4e0620bea09eaf1d94f30",
+   "release_date": "2026-07-07",
+   "url": "https://open.spotify.com/track/46pi0Hk8MwLED1NWz1OBbI"
+  },
+  {
+   "name": "Every Day Is a Vortex",
+   "uri": "spotify:track:4WlT2CKBDxLl0RL91Tz7f5",
+   "duration_ms": 224124,
+   "artists": [
+    "Jakub Tirco"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/0q1Ueb46rFG29potDJywoU",
+   "album": "Imagined Spaces",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273716c27398c84008d779ad671",
+   "release_date": "2026-08-14",
+   "url": "https://open.spotify.com/track/4WlT2CKBDxLl0RL91Tz7f5"
+  },
+  {
+   "name": "90 Percent",
+   "uri": "spotify:track:3G7vtEzg5JvWdvzR0UxBxr",
+   "duration_ms": 304672,
+   "artists": [
+    "Tanertill",
+    "RDM",
+    "Randy M. Salo"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/1jkFyTQ6GV4m0M3ccYN6QU",
+   "album": "90 Percent",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273518722b8ea152efd8f46db82",
+   "release_date": "2026-08-21",
+   "url": "https://open.spotify.com/track/3G7vtEzg5JvWdvzR0UxBxr"
+  },
+  {
+   "name": "OVERWHELMED",
+   "uri": "spotify:track:2YF72dr6r89o9bS0x3Mabf",
+   "duration_ms": 273000,
+   "artists": [
+    "Lufeh",
+    "Ginny Luke"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/0an1zJbJGzCFkoXapSmjaB",
+   "album": "OVERWHELMED",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b27339380d55bd30e3f3aab7d861",
+   "release_date": "2026-04-15",
+   "url": "https://open.spotify.com/track/2YF72dr6r89o9bS0x3Mabf"
+  },
+  {
+   "name": "Bring Down the Sky",
+   "uri": "spotify:track:7f8vi4dSKX2kD5z6H0cfkA",
+   "duration_ms": 253866,
+   "artists": [
+    "Oceanrise"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/2nqJfaQdfiPllVzicZBTSt",
+   "album": "Beyond The Dune Sea",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273e91434c2bf7401e45848672e",
+   "release_date": "2026-08-07",
+   "url": "https://open.spotify.com/track/7f8vi4dSKX2kD5z6H0cfkA"
+  },
+  {
+   "name": "Maybe All a Dream",
+   "uri": "spotify:track:0cEayj9GlWT2awWziRlOuL",
+   "duration_ms": 534280,
+   "artists": [
+    "Pattern-Seeking Animals"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/3X2gxHjnxuXGLgs0nrqMuW",
+   "album": "Grimalkin",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273179ab0b14ee2c8cad78797db",
+   "release_date": "2026-08-21",
+   "url": "https://open.spotify.com/track/0cEayj9GlWT2awWziRlOuL"
+  },
+  {
+   "name": "Illuminate",
+   "uri": "spotify:track:3HtMFY0vLnXjj7eXIvPEoA",
+   "duration_ms": 268384,
+   "artists": [
+    "Oddland"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/2C4y5kq2y7T69khYjax5YB",
+   "album": "Unilluminate To Illuminate",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b2736f32d201b746268a8998b2d7",
+   "release_date": "2026-08-21",
+   "url": "https://open.spotify.com/track/3HtMFY0vLnXjj7eXIvPEoA"
+  },
+  {
+   "name": "Summit Not The Chasm",
+   "uri": "spotify:track:1spN7elqO8ae86I2snOAiR",
+   "duration_ms": 326500,
+   "artists": [
+    "Last Scene Alive",
+    "Taisha Estrada"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/603Meq3EllJTeoYBQcSUGP",
+   "album": "World Class Pep Talk",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b2734cca27a55a638371706e37bc",
+   "release_date": "2026-03-06",
+   "url": "https://open.spotify.com/track/1spN7elqO8ae86I2snOAiR"
+  },
+  {
+   "name": "The Right Side of the Escalator",
+   "uri": "spotify:track:34wkpfakN81SShZCdbtdWN",
+   "duration_ms": 277446,
+   "artists": [
+    "Naná Rizinni",
+    "Mark Cake"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/2AhWPqAwU5tZEQqMVPr8NM",
+   "album": "Epiblast",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273b93ff2f7322a73974e4be7e2",
+   "release_date": "2026-04-24",
+   "url": "https://open.spotify.com/track/34wkpfakN81SShZCdbtdWN"
+  },
+  {
+   "name": "Prelude For All Seekers",
+   "uri": "spotify:track:1K9sehA1QUYO5RfbGIRTCP",
+   "duration_ms": 269512,
+   "artists": [
+    "Tigran Hamasyan"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/0D3h8NZqNp7BN97JwtV6eW",
+   "album": "Manifeste",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273c5dc595e66bccea1a5197697",
+   "release_date": "2026-02-06",
+   "url": "https://open.spotify.com/track/1K9sehA1QUYO5RfbGIRTCP"
+  },
+  {
+   "name": "Something To Believe In",
+   "uri": "spotify:track:0aM1mCxoiwvhN5828gvLNV",
+   "duration_ms": 438414,
+   "artists": [
+    "Lorenzo Di Maio",
+    "Wajdi Riahi",
+    "Cedric Raymond",
+    "Pierre Hurty"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/7scS7JBcdL9LRnsyZGsraZ",
+   "album": "Ruby II",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273e762da9d4b5796a27ef155b7",
+   "release_date": "2026-03-27",
+   "url": "https://open.spotify.com/track/0aM1mCxoiwvhN5828gvLNV"
+  },
+  {
+   "name": "Matti's Mojo",
+   "uri": "spotify:track:2UqXRWH0AO8l2ecr4C6cHS",
+   "duration_ms": 352520,
+   "artists": [
+    "Kryptones",
+    "Julian Ritter",
+    "Marcus Kesselbauer"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/2cSBrTypxO1J9oDTsA7w56",
+   "album": "Matti's Mojo",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b2734987d7f8481b40e48e961aac",
+   "release_date": "2026-03-27",
+   "url": "https://open.spotify.com/track/2UqXRWH0AO8l2ecr4C6cHS"
+  },
+  {
+   "name": "Rules Of The Game",
+   "uri": "spotify:track:2NCKMGcBAK8C7QSA6C4sAQ",
+   "duration_ms": 249070,
+   "artists": [
+    "The Messthetics",
+    "James Brandon Lewis"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/61wWE8w2nqaoNmKCOjJ4Hm",
+   "album": "Deface The Currency",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273174723a6544ee8fd643effe7",
+   "release_date": "2026-02-20",
+   "url": "https://open.spotify.com/track/2NCKMGcBAK8C7QSA6C4sAQ"
+  },
+  {
+   "name": "To March Is To Love, Pt I",
+   "uri": "spotify:track:2KJXQeZ2AKcaQiJjtqWaVJ",
+   "duration_ms": 183796,
+   "artists": [
+    "Janel Leppin",
+    "Luke Stewart",
+    "Anthony Pirog",
+    "Brian Settles"
+   ],
+   "artist_spotify": "https://open.spotify.com/artist/0LZYZT8UiqYEvu8T6cXfn3",
+   "album": "Ensemble Volcanic Ash: To March Is To Love",
+   "album_art": "https://i.scdn.co/image/ab67616d0000b273b639cd201cdc579a4305e84a",
+   "release_date": "2024-06-28",
+   "url": "https://open.spotify.com/track/2KJXQeZ2AKcaQiJjtqWaVJ"
+  }
+ ]
+}

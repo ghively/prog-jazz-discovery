@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "note": "Verified external artist links. Only URLs confirmed via search/browser go here; everything else falls back to the Spotify artist page from tracks.json. Updated weekly by the Monday run.",
+    "verified": "2026-09-02"
+  },
+  "We Used to Cut the Grass": {
+    "bandcamp": "https://weusedtocutthegrass.bandcamp.com/"
+  },
+  "Ill Considered": { "bandcamp": "https://illconsidered.bandcamp.com/" },
+  "Hypno5e": {
+    "bandcamp": "https://hypno5e.bandcamp.com/",
+    "website": "https://www.hypno5e.com/"
+  },
+  "Blackwater Holylight": {
+    "bandcamp": "https://blackwaterholylight.bandcamp.com/"
+  },
+  "REZN": { "bandcamp": "https://rezzzn.bandcamp.com/" },
+  "Niechęć": { "bandcamp": "https://dislikeband.bandcamp.com/" },
+  "Koenjihyakkei": {
+    "bandcamp": "https://skingraftrecords.bandcamp.com/",
+    "website": "https://yoshidatatsuya.bandcamp.com/"
+  },
+  "Athak": { "bandcamp": "https://athak.bandcamp.com/" },
+  "The Protomen": { "website": "https://protomen.com" },
+  "Trust Fund Ozu": { "bandcamp": "https://trustfundozu.bandcamp.com" },
+  "Knats": { "bandcamp": "https://knats.bandcamp.com/" },
+  "Etceteral": { "bandcamp": "https://etceteral.bandcamp.com/" },
+  "Oh Hiroshima": { "bandcamp": "https://oh-hiroshima.bandcamp.com/" },
+  "We Stood Like Kings": {
+    "bandcamp": "https://wslk.bandcamp.com/",
+    "website": "https://www.westoodlikekings.com/"
+  },
+  "PAON": { "bandcamp": "https://paon-musicism.bandcamp.com/" },
+  "Dimhav": { "bandcamp": "https://dimhav.bandcamp.com/" }
+}
