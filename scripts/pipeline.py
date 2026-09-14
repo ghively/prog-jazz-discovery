@@ -634,13 +634,29 @@ def cmd_verify(candidates_path=None):
 
     verified, failures, warnings, artist_cache = [], [], [], {}
     for c in cands:
-        q = urllib.parse.urlencode({"q": f"{c['artist']} {c['track']}", "type": "track", "limit": "1"})
-        try:
-            _, res = client.get(f"{API}/search?{q}")
-            items = res.get("tracks", {}).get("items", []) or res.get("items", [])
-        except Exception as e:
-            failures.append({**c, "reason": f"search error: {e}"})
-            continue
+        # Recovery candidates may carry a Spotify URI/URL from the editorial
+        # harvest or web-player lookup.  Resolve those directly so a spent
+        # catalog-search quota cannot invalidate an otherwise complete draft.
+        candidate_uri = c.get("uri") or c.get("spotify_uri") or c.get("spotify_url")
+        if candidate_uri:
+            track_id = str(candidate_uri).rstrip("/").split("/")[-1].split(":")[-1]
+            try:
+                _, t = client.get(f"{API}/tracks/{track_id}")
+                items = [t] if isinstance(t, dict) and t.get("id") else []
+            except Exception as e:
+                failures.append({**c, "reason": f"direct track lookup error: {e}"})
+                continue
+        else:
+            q = urllib.parse.urlencode({"q": f"{c['artist']} {c['track']}", "type": "track", "limit": "1"})
+            try:
+                _, res = client.get(f"{API}/search?{q}")
+                items = res.get("tracks", {}).get("items", []) or res.get("items", [])
+            except Exception as e:
+                failures.append({**c, "reason": f"search error: {e}"})
+                continue
+            if not items:
+                failures.append({**c, "reason": "not found"})
+                continue
         if not items:
             failures.append({**c, "reason": "not found"})
             continue

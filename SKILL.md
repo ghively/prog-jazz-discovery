@@ -120,7 +120,7 @@ python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref va
 
 ### 2. Harvest (≤10 web calls, respect per-source caps)
 
-Fetch sources per the lane map. Write `~/.hermes/prog-discovery/candidates-week.json` (~50 candidates, each with artist/track/lane/source/tag). If a source is thin, move on; never pad with famous bands. The reserve pool tops up short lanes after harvest.
+Fetch sources per the lane map. Write `~/.hermes/prog-discovery/candidates-week.json` (~50 candidates, each with artist/track/lane/source/tag). If a source is thin, move on; never pad with famous bands. The reserve pool tops up short lanes after harvest. When harvest or Spotify web-player lookup yields an exact Spotify URI, preserve it as `uri`; verification uses that ID directly and still checks the returned artist, title, and repeat set. Never invent a URI.
 
 ### 3. Verify (one pipeline call)
 
