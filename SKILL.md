@@ -1,7 +1,7 @@
 ---
 name: prog-discovery-weekly
 description: "Run the weekly Prog & Jazz Discovery playlist and Now Spinning site edition: harvest by scene mode, verify, publish, build."
-version: 3.0.0
+version: 3.1.0
 author: Gene Hively
 license: MIT
 tags: [music, prog, jazz, playlist, spotify, discovery, weekly]
@@ -12,7 +12,7 @@ metadata:
     requires_toolsets: [web, terminal, file, spotify]
 ---
 
-# Prog & Jazz Discovery — Weekly Playlist + Now Spinning Edition (v3: scene modes)
+# Prog & Jazz Discovery — Weekly Playlist + Now Spinning Edition (v3.1: verified handoff + preferences)
 
 ## When to Use
 
@@ -21,10 +21,10 @@ metadata:
 
 A replacement for a lapsed music-magazine subscription. Every Monday: build ONE Spotify playlist of ~38 tracks across six lanes, verify every track, record attribution, publish, then build and deploy the Now Spinning site edition.
 
-**State:** `~/.hermes/prog-discovery/state.json` (week counter, played history `{artist: last_week}`, scene wheel with modes)
-**Pipeline script:** `scripts/pipeline.py` — ALL Spotify mechanics go through it (scene / seeds / verify / publish / selftest). The agent does editorial work only; the script does API loops. This is the v2 core fix for small-model context exhaustion.
-**Site generator:** `site/build_site.py` + `site/qa.py` — turns each published edition into a page at music.hively.dev.
-**Cron:** `prog-discovery-monday`, Mon 09:00 America/Chicago, pinned glm-4.7-flash/zai
+**State:** `~/.hermes/prog-discovery/state.json` (week counter, published playlist history, scene wheel with modes)
+**Pipeline script:** `scripts/pipeline.py` — ALL Spotify mechanics go through it (scene / verify / publish / handoff / pref / selftest). The agent does editorial work only; the script does API loops. This is the v2 core fix for small-model context exhaustion.
+**Site generator:** `site/build_site.py` + `site/qa.py` — turns each published edition into a page at `https://music.hively.dev/<date>/`.
+**Cron:** `prog-discovery-monday`, Mon 09:00 America/Chicago, job id `443c370278cc`, pinned `glm-5.3-flash`/`zai`; enabled toolsets are `spotify`, `web`, `terminal`, `file`, and the scheduler sentinel `no_mcp` (required to prevent all globally enabled MCP servers from being unioned into this job).
 
 ## The six lanes (weights ARE slot quotas)
 
@@ -37,9 +37,9 @@ A replacement for a lapsed music-magazine subscription. Every Monday: build ONE 
 | archive     | 2     | Pre-2015 obscure bands Gene likely missed. In a **lineage** week these must reach somewhere OTHER than the lineage (no duplicated history lesson)                     |
 | wildcard    | 2     | **Editor's wildcard** — the two most exciting finds of the week from ANY source. Pure editorial judgment                                                              |
 
-**NO listening-history personalization.** Gene explicitly rejected it (2026-08-29): the point of this system is to subvert algorithmic lock-in. Played ≠ enjoyed; only saved-to-library counts as an endorsement, and that signal is PARKED. Selection stays 100% editorial: sources, lanes, quotas, modes.
+**NO listening-history personalization.** Gene explicitly rejected it (2026-08-29): the point of this system is to subvert algorithmic lock-in. Selection stays editorial: explicit user-entered preferences, sources, lanes, quotas, and modes.
 
-Hard rules across lanes (pipeline.py ENFORCES the first three): tracks never repeat (verify rejects); no artist within 8 weeks (verify warns — played_artists stores `{artist: last_week}`); max 4 tracks per fine tag (verify counts, publish refuses); per-source caps (below). Obscurity gate: skip >500k followers; borderline only if <3 albums; legends never. `verify` prints each artist's `followers` and `popularity` — apply the gate against those numbers, never against vibes.
+Hard rules across lanes (pipeline.py ENFORCES the first three): tracks never repeat (verify rejects); no artist within 8 weeks (verify warns — played_artists stores `{artist: last_week}`); max 4 tracks per fine tag (verify counts, publish refuses); per-source caps (below). Spotify removed Artist.followers and Artist.popularity in February 2026, so `verify` preserves those fields as `null` for compatibility and does not use them as a gate. Obscurity is now an editorial/source-evidence decision: skip obvious mainstream artists, never use famous legacy bands, and record the supporting article/review evidence. Do not reject otherwise valid candidates merely because Spotify returns no follower/popularity metadata.
 
 ## Scene modes (v3, owner decisions 2026-09-02)
 
@@ -54,6 +54,7 @@ A scene MAY be a history lesson; a scene that traverses old and new across decad
 
 - The agent may argue a different mode for a given week if the harvest supports it: write `scene_mode` + one-line `scene_reason` into draft.json (top level) before publish; publish records both into `state.json.playlists[]`.
 - No age ratios, age quotas, or old/new splits anywhere — the mode system is what keeps weeks distinct, not arithmetic.
+- **Story is editorial, not deterministic:** use the wheel only as a starting prompt. Let the selected records, labels, players, places, production choices, or source cluster determine the story's central tension and arc. Do not write a generic mode summary, do not enumerate required panels as the story, and do not mention the wheel or template in reader-facing copy. Record a concrete `scene_reason` explaining why these records belong together.
 - The wheel is a default, not a law: if the week's press clusters on something (a country, a label, a death, an anniversary), the agent may name that as the theme and must record the justification in `scene_reason`.
 
 ## Source → lane map (with per-source caps)
@@ -98,7 +99,24 @@ Week 2 postmortem lesson (2026-08-31): Bandcamp 6/4, Subway 5/3, ProgArchives 5/
 python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py scene
 ```
 
-Reads state.json, prints week, scene, short, **mode**, **angle**. Harvest the scene lane per the mode table. (Do NOT run `seeds` — personalization rejected; subcommand is a passive recorder only.)
+Reads state.json, prints week, scene, short, **mode**, **angle**. Harvest the scene lane per the mode table. Use only explicit user-entered `preferences.json`; never infer enjoyment or candidate ranking from listening activity.
+
+### Preference feedback (explicit, bounded, visible)
+
+Preferences are an editorial input, never a Spotify-personalization system. `preferences.json` is user-entered only and has exactly three top-level lists: `include` (cap 50), `exclude` (cap 50), and `boost` (cap 20). Include/exclude entries are strings or objects with a non-empty `name`; optional object fields are `note`, `added_by`, and `added_at`. Boost entries are objects with a non-empty `name` and numeric `weight` from 0.1 through 2.0, with the same optional metadata. Names may not be duplicated across lists; unknown top-level keys, malformed entries, cap overruns, and playback-derived provenance are rejected.
+
+Manage the file only through the pipeline:
+
+```
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref show
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref add include "Artist or tag" [--note "..."] [--added-by "..."]
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref add exclude "Artist or tag"
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref add boost "Artist or tag" --weight 1.5
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref remove include "Artist or tag"
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py pref validate
+```
+
+`pref add` validates before writing; invalid JSON/schema exits 8 and is not silently repaired. The deterministic `apply_preferences` helper defines editorial use: excludes are dropped, includes sort matching candidates first, and boosts multiply the stable ranking; callers must use it only with the validated user-entered file. The effective preference summary is copied into each edition's `site/data/<date>/preferences.json` and into `handoff.json`, so the notes available to the edition are visible per edition. No preference is derived from listening history, plays, skips, playback, or related-artist feeds.
 
 ### 2. Harvest (≤10 web calls, respect per-source caps)
 
@@ -110,7 +128,7 @@ Fetch sources per the lane map. Write `~/.hermes/prog-discovery/candidates-week.
 python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py verify
 ```
 
-Searches Spotify per candidate, rejects artist mismatches, REJECTS tracks already in `played_tracks`, WARNS on artists in the 8-week cooldown (with the week they last appeared), fetches each artist's followers + popularity, and prints per-source/per-tag counts with violations. Writes draft.json. Swap failed candidates and re-run until ≥40 verified, 34 usable minimum.
+Searches Spotify per candidate, rejects artist mismatches, REJECTS tracks already present in a published edition, fetches each artist's followers + popularity, and prints per-source/per-tag counts with violations. It never reads listening history or infers enjoyment. The validated preference helper is available for the editorial ranking/selection step; any use remains based only on explicit user-entered `preferences.json`. Writes draft.json. Swap failed candidates and re-run until ≥40 verified, 34 usable minimum.
 
 ### 4. Select + sequence
 
@@ -122,7 +140,7 @@ From draft.json pick the final ~38 honoring lane quotas, source caps, and max-4-
 python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py publish
 ```
 
-Refuses (exit 2) under 34 tracks; refuses (exit 4) on source/tag cap violations; creates the playlist named `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>` (NO week numbers), adds in batches, verifies count via API, and only on match atomically updates state.json (week counter, playlists[] now including `scene`, `scene_mode`, `scene_reason`; played_artists as `{artist: week}`) and appends attribution.jsonl. Mismatch exits 3 with state untouched. If it refuses: fix the draft, re-run. Do not deliver on any nonzero exit.
+Refuses (exit 2) under 34 tracks; refuses (exit 4) on source/tag cap violations; creates the playlist named `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>` (NO week numbers), adds in batches, verifies count via API, and only on match atomically updates state.json (week counter, playlists[] now including `scene`, `scene_mode`, `scene_reason`) and appends attribution.jsonl. Repeat protection is based on published edition data, not listening history. Mismatch exits 3 with state untouched. If it refuses: fix the draft, re-run. Do not deliver on any nonzero exit.
 
 ### 6. Site edition — research (Phase 2 of the cron)
 
@@ -149,7 +167,17 @@ cd ~/.hermes/prog-discovery/site && python3 build_site.py && python3 qa.py
 
 Deploy ONLY on qa exit 0: `rsync -a --delete out/ /var/www/music/` — never `cp -r` (D-5: retired pages must disappear). Confirm with `curl -s https://music.hively.dev/`.
 
-### 8. Deliver (Phase 4)
+### 8. Machine-verifiable handoff (Phase 4)
+
+Run only after publish, site build, and QA:
+
+```
+python3 ~/.hermes/skills/media/prog-discovery-weekly/scripts/pipeline.py handoff --date YYYY-MM-DD
+```
+
+This writes `site/data/<date>/handoff.json` only when all proof is present. The artifact schema is `prog-discovery/handoff/v1` and includes the required `date`, `week`, `playlist_id`, `playlist_url`, `track_count`, `scene`, `scene_mode`, `lane_counts`, `source_counts`, `tag_counts`, `effective_preferences`, `site_url`, and `qa` fields. It cross-checks state, edition, tracks, attribution, lane/source/tag provenance, built output, and `qa.py` exit 0. It also writes the effective preference summary to the edition data directory for visibility. Missing or inconsistent data, failed QA, malformed preferences, or an empty required field exits nonzero (handoff validation exits 6; missing publication/data exits 5); `--skip-qa` is rejected. A scheduler job marked completed is never success by itself.
+
+### 9. Deliver (Phase 5)
 
 To the job origin: playlist URL, count, lane breakdown one-liner, scene + scene_mode, 3-5 highlight blurbs, edition URL, qa-passed confirmation. Tight — no wall of text.
 
@@ -161,10 +189,12 @@ To the job origin: playlist URL, count, lane breakdown one-liner, scene + scene_
 - **API shape (2026-08)**: playlist GET nests tracks at `items.items[].item`; count = `items.total`; `/tracks` sub-endpoint 403s.
 - **Token refresh**: pipeline.py PKCE-refreshes automatically when <60s to expiry.
 - **Cron scheduler "completed" ≠ success** — trust only: playlist URL live + count verified + state.json updated. publish proves all three atomically.
+- **Handoff is the final proof** — do not report success until `handoff --date YYYY-MM-DD` exits 0 and its JSON is available. The handoff includes the playlist URL/count, scene/mode, lane/source/tag summaries, effective preferences, site URL, and QA proof.
 
 ## Pitfalls
 
 - **The pipeline script does the Spotify work.** Do not run 38 spotify_search calls — that killed trial 1 (context exhaustion at msg 56).
+- **Cron isolation requires `no_mcp`.** A native-only `enabled_toolsets` list does not exclude MCP in Hermes 0.21.0; the scheduler unions every globally enabled MCP server unless `no_mcp` is present. Keep job `443c370278cc` at `spotify,web,terminal,file,no_mcp`. Do not attach the generic `spotify` or `capacities` skills: this skill already contains the required workflow, and those documents only inflate the fresh cron prompt.
 - Harvest ≤10 calls, verify/publish = 2 calls; agent turn budget ~20 calls.
 - Never search the same artist twice in one run.
 - Subgenre-tag every pick (`tag` field); pipeline counts and refuses on cap breaches — if publish refuses, trim the named over-cap source/tag, don't relitigate.
@@ -172,6 +202,7 @@ To the job origin: playlist URL, count, lane breakdown one-liner, scene + scene_
 - Capacities (optional): NEVER delete objects.
 - If a run fails partway, draft.json preserves progress; state is only touched by a successful publish.
 - **Read state from the right lifetime** (D-4): the site builder must never read the live draft.json — lane data is per-edition and lives in each edition.json. Anything week-scoped (draft, candidates) must be persisted into edition-scoped files before the next week overwrites it.
+- **Lane data is in the edition files** (D-4): every edition.json carries `lanes: {uri: lane}` and `scene_mode`. `load_all()` reads edition.json only; never reintroduce a read of draft.json — that file holds only the current week and silently corrupted older editions on rebuild before the fix. `edition.json` also carries `scene_mode` (lineage / living / moment / microgenre), which selects the Deep Dive panel heading; qa.py fails an edition that has a scene but no `scene_mode`.
 - **Keep the aesthetic stable** (owner, 2026-09-02): the site's look was approved as-is; the polish session's visual redesign was reverted by Gene the same day. Fix rendering bugs with the smallest diff that fixes the named bug — do not re-systematize the CSS. (The audit's C-1..C-12 token work exists in git history if ever wanted.)
 - **Positioned overlays need measured overlap checks** (R-1): absolute-positioned badges/notes over sleeves overlap flexible content by default; verify with a layout check (Playwright bounding boxes), not eyeballing. (Current badge overlap is accepted by owner preference; the method stands for any future change.)
 - **Deploy with rsync --delete, never cp -r** (D-5): retired pages stay live forever otherwise.
@@ -187,12 +218,16 @@ To the job origin: playlist URL, count, lane breakdown one-liner, scene + scene_
 - [ ] state.json playlists[] entry carries scene, scene_mode, scene_reason
 - [ ] attribution.jsonl has this week's entry
 - [ ] edition.json has scene_mode + lanes covering every track uri; qa.py exit 0
+- [ ] `pipeline.py handoff --date YYYY-MM-DD` exits 0 and writes `site/data/<date>/handoff.json`
+- [ ] `handoff.json` includes effective preferences and the per-edition `preferences.json` is visible
 - [ ] rsync --delete deployed; https://music.hively.dev/ serves the new edition
 - [ ] Link + blurbs delivered to Gene
 
 ## Changelog
 
-- 3.0.0 (2026-09-02): scene modes (lineage/living/moment/microgenre) per owner decisions — wheel entries carry mode+angle, harvest and Deep Dive follow the mode, agent may argue mode with recorded reason; scene/scene_mode/scene_reason recorded on publish; played_artists migrated to {artist: last_week}; verify enforces played-track rejection + cooldown warnings + per-source/per-tag caps + followers/popularity fetch; publish refuses on cap violations (exit 4); candidates carry required `tag`; SOURCE_CAPS dict is the single source of caps (mirrored in the source map); site phases 2-4 documented (D-1); edition.json now carries lanes (D-4) and scene_mode; deploy via rsync --delete (D-5). Written from the 2026-09-02 audit + polish session (docs/POLISH-REPORT-2026-09-02.md).
+- 3.1.1 (2026-09-08): permanently isolated cron job `443c370278cc` from the global MCP catalog with `no_mcp`, removed redundant skill attachments, and corrected the live model pin to `glm-5.3-flash`/`zai`.
+- 3.1.0 (2026-09-06): machine-verifiable handoff (`handoff.json`, mandatory QA, nonzero failure semantics), deterministic repeat/provenance/consistency gates, and bounded explicit include/exclude/boost preferences with per-edition visibility. Cron success is never inferred from scheduler completion.
+- 3.0.0 (2026-09-02): scene modes (lineage/living/moment/microgenre) per owner decisions — wheel entries carry mode+angle, harvest and Deep Dive follow the mode, agent may argue mode with recorded reason; scene/scene_mode/scene_reason recorded on publish; verify enforces published-edition repeat protection + per-source/per-tag caps + followers/popularity fetch; publish refuses on cap violations (exit 4); candidates carry required `tag`; SOURCE_CAPS dict is the single source of caps (mirrored in the source map); site phases 2-4 documented (D-1); edition.json now carries lanes (D-4) and scene_mode; deploy via rsync --delete (D-5). Written from the 2026-09-02 audit + polish session (docs/POLISH-REPORT-2026-09-02.md).
 - 2.0.2 (2026-08-29): playlist retitling — no week numbers; scene wheel entries carry short display names.
 - 2.0.1 (2026-08-29): feedback lane REMOVED (personalization rejected); replaced by editor's wildcard lane.
 - 2.0.0 (2026-08-29): lane architecture v2 — six lanes, source caps, atomic publish, mechanics in pipeline.py.
