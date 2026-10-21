@@ -17,9 +17,7 @@ from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
 PIPELINE = SCRIPTS / "pipeline.py"
-REAL_QA = Path.home() / ".hermes" / "prog-discovery" / "site" / "qa.py"
-if not REAL_QA.exists():  # non-sandboxed checkouts
-    REAL_QA = Path("/home/ghively/.hermes/prog-discovery/site/qa.py")
+REAL_QA = Path(__file__).resolve().parents[1] / "site" / "qa.py"
 
 DATE = "2099-01-04"
 PID = "5xK9amplePlaylistId"
