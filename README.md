@@ -49,6 +49,16 @@ Cross-cutting rules (the first three are **enforced by pipeline.py**, not just w
 
 **Playlist title format:** `Prog & Jazz Discovery — YYYY-MM-DD · <Scene>` — dated, scene visible, no week numbers (the counter lives in state + the playlist description).
 
+## Verification
+
+Run the deterministic, network-free fixture tests with the Python standard library:
+
+```bash
+python3 -m unittest discover -s scripts -p "test_*.py" -v
+```
+
+The tests use the repository QA gate and temporary fixture directories; they do not call Spotify or write to a user home directory.
+
 ## Requirements
 
 - A Hermes install (or any agent that can run Python, fetch web pages, and edit files)
